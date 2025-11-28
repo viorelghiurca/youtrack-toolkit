@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Specific UserGroup
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/user/:id/groups/:userGroupId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{userBundleID}}
+  userGroupId: {{groupID}}
+}
+
+settings {
+  encodeUrl: true
+}

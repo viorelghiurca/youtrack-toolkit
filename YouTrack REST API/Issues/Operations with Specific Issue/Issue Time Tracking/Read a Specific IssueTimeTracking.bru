@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific IssueTimeTracking
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/issues/:id/timeTracking?fields=draftWorkItem(id),enabled,workItems(created,duration(presentation,minutes),author(name),creator(name),date,id)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: draftWorkItem(id),enabled,workItems(created,duration(presentation,minutes),author(name),creator(name),date,id)
+}
+
+params:path {
+  id: {{issue}}
+}
+
+settings {
+  encodeUrl: true
+}

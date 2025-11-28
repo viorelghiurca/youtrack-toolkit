@@ -1,0 +1,39 @@
+meta {
+  name: Update a Specific UserBundle
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/user/:id?fields=id,name,aggregatedUsers(id,login),groups(name,id)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,aggregatedUsers(id,login),groups(name,id)
+}
+
+params:path {
+  id: {{userBundleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "groups": [
+      {
+        "id": "{{groupID}}"
+      }
+    ],
+    "name": "Heroes",
+    "isUpdateable": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}

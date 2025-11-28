@@ -1,0 +1,19 @@
+meta {
+  name: Read a List of BuildBundles
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/build?fields=id,name,fieldType(presentation,id)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,fieldType(presentation,id)
+}
+
+settings {
+  encodeUrl: true
+}

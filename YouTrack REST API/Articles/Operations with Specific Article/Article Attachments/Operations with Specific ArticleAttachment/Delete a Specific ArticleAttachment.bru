@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Specific ArticleAttachment
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/articles/:id/attachments/:articleAttachmentId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{articleID}}
+  articleAttachmentId: {{articleAttachmentID}}
+}
+
+settings {
+  encodeUrl: true
+}

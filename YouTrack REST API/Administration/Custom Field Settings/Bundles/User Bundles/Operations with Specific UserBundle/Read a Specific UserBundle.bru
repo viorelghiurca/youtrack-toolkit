@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific UserBundle
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/user/:id?fields=name,id,isUpdateable,individuals(login,id,name),groups(name,id),aggregatedUsers(name,id,login)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,isUpdateable,individuals(login,id,name),groups(name,id),aggregatedUsers(name,id,login)
+}
+
+params:path {
+  id: {{userBundleID}}
+}
+
+settings {
+  encodeUrl: true
+}

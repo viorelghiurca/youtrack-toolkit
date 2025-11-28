@@ -1,0 +1,34 @@
+meta {
+  name: Update a Specific IssueAttachment
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/issues/:id/attachments/:issueAttachmentId?fields=id,name,author(id,name),created,updated,size,mimeType,extension,metaData,url
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,author(id,name),created,updated,size,mimeType,extension,metaData,url
+}
+
+params:path {
+  id: {{issue}}
+  issueAttachmentId: {{issueAttachmentID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "name": "orphan-modules.png"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

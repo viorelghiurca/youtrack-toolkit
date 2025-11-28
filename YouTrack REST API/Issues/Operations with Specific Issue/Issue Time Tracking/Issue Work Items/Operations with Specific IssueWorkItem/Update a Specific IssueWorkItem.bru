@@ -1,0 +1,39 @@
+meta {
+  name: Update a Specific IssueWorkItem
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/issues/:id/timeTracking/workItems/:issueWorkItemId?fields=author(id,name),creator(id,name),date,duration(id,minutes,presentation),id,name,type(id,name)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: author(id,name),creator(id,name),date,duration(id,minutes,presentation),id,name,type(id,name)
+}
+
+params:path {
+  id: {{issue}}
+  issueWorkItemId: {{workItemID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "duration": {
+      "minutes": 150
+    },
+    "type": {
+      "id": "{{workItemTypeID}}"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

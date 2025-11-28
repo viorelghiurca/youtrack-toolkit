@@ -1,0 +1,20 @@
+meta {
+  name: Read a List of Articles
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/articles?fields=hasStar,content,created,updated,id,idReadable,reporter(name),summary,project(shortName),content
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: hasStar,content,created,updated,id,idReadable,reporter(name),summary,project(shortName),content
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

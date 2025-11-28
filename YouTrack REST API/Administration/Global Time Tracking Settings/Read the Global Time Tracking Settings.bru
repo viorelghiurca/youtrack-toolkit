@@ -1,0 +1,19 @@
+meta {
+  name: Read the Global Time Tracking Settings
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/admin/timeTrackingSettings?fields=workItemTypes(name,autoAttached,id),workTimeSettings(daysAWeek,firstDatOfWeek,minutesADay,workDays,id)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: workItemTypes(name,autoAttached,id),workTimeSettings(daysAWeek,firstDatOfWeek,minutesADay,workDays,id)
+}
+
+settings {
+  encodeUrl: true
+}

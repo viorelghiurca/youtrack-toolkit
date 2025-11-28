@@ -1,0 +1,19 @@
+meta {
+  name: Read a List of BackupFiles
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/databaseBackup/backups?fields=creationDate,file,error,link,name,size,id
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: creationDate,file,error,link,name,size,id
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,35 @@
+meta {
+  name: Read Command Suggestions
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/commands/assist?fields=caret,commands(delete,description,error),query,styleRanges(end,length,start,style),suggestions(caret,className,comment,completionEnd,completionStart,description,group,icon,id,matchingEnd,matchingStart,option,prefix,suffix)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: caret,commands(delete,description,error),query,styleRanges(end,length,start,style),suggestions(caret,className,comment,completionEnd,completionStart,description,group,icon,id,matchingEnd,matchingStart,option,prefix,suffix)
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "query": "sta",
+      "caret": 3,
+      "issues": [
+          {
+              "idReadable": "{{issue}}"
+          }
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

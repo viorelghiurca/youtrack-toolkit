@@ -1,0 +1,36 @@
+meta {
+  name: Update a Specific VersionBundleElement
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/version/:id/values/:versionBundleElementId?fields=id,name,archived,released,releaseDate,description
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,archived,released,releaseDate,description
+}
+
+params:path {
+  id: {{versionBundleID}}
+  versionBundleElementId: {{versionBundleElementID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "releaseDate": 1627997040000,
+    "released": true,
+    "archived": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}

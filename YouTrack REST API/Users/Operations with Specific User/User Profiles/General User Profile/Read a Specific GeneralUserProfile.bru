@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific GeneralUserProfile
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/users/:id/profiles/general?fields=id,dateFieldFormat(id,presentation,pattern,datePattern),timezone(id,presentation,offset),locale(id,name,community,language,locale)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,dateFieldFormat(id,presentation,pattern,datePattern),timezone(id,presentation,offset),locale(id,name,community,language,locale)
+}
+
+params:path {
+  id: {{userID}}
+}
+
+settings {
+  encodeUrl: true
+}

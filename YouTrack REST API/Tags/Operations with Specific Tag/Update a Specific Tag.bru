@@ -1,0 +1,43 @@
+meta {
+  name: Update a Specific Tag
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/tags/:id?fields=id,name,owner(login,name),visibleFor(name,id),issues(idReadable,summary)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,owner(login,name),visibleFor(name,id),issues(idReadable,summary)
+}
+
+params:path {
+  id: {{tagID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "issues": [
+          {
+              "idReadable": "{{issue}}"
+          },
+          {
+              "idReadable": "{{issue}}"
+          }
+      ],
+      "visibleFor": {
+          "id": "{{groupID}}"
+      }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

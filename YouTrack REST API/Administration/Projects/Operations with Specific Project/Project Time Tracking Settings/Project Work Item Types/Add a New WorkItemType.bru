@@ -1,0 +1,33 @@
+meta {
+  name: Add a New WorkItemType
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/projects/:id/timeTrackingSettings/workItemTypes?fields=id,name,autoAttached
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,autoAttached
+}
+
+params:path {
+  id: {{projectID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "id": "{{workItemTypeID}}"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

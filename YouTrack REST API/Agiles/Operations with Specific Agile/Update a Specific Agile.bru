@@ -1,0 +1,58 @@
+meta {
+  name: Update a Specific Agile
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/agiles/:id?fields=id,name,columnSettings(columns(id,isResolved,presentation,wipLimit(min,max)),field(id,name))
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,columnSettings(columns(id,isResolved,presentation,wipLimit(min,max)),field(id,name))
+}
+
+params:path {
+  id: {{agileBoardID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "owner": {
+          "id": "{{userID}}",
+          "$type": "User"
+      },
+      "columnSettings": {
+          "columns": [
+              {
+                  "id": "110-0"
+              },
+              {
+                  "wipLimit": {
+                      "max": 5
+                  },
+                  "id": "110-1"
+              },
+              {
+                  "wipLimit": {
+                      "max": 5
+                  },
+                  "id": "110-2"
+              },
+              {
+                  "id": "110-3"
+              }
+          ]
+      }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

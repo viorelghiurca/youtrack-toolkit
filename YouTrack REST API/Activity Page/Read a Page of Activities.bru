@@ -1,0 +1,22 @@
+meta {
+  name: Read a Page of Activities
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/activitiesPage?fields=id,beforeCursor,afterCursor,activities(id,author(name,login),timestamp)&categories=IssueCreatedCategory,CommentsCategory&$skip=30&$top=3
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,beforeCursor,afterCursor,activities(id,author(name,login),timestamp)
+  categories: IssueCreatedCategory,CommentsCategory
+  $skip: 30
+  $top: 3
+}
+
+settings {
+  encodeUrl: true
+}

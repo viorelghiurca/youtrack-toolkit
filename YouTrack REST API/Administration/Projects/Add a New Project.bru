@@ -1,0 +1,42 @@
+meta {
+  name: Add a New Project
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/projects?fields=id,shortName,name,leader(id,login,name)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,shortName,name,leader(id,login,name)
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "description": "A new project created from the REST API",
+    "name": "GRA Project",
+    "shortName": "GRP",
+    "leader": {
+      "id": "{{userID}}"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  When creating a new project, you must provide project's name, short name, and the project leader. Other attributes are optional. To create a project that is based on a template, like Scrum or Kanban, you need to add `template` query parameter to the endpoint URL.
+  
+  Put the ID of the project leader into the `sampleUser` variable or replace the variable with the project ID in the request body.
+  
+  [https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-projects.html#create-Project-method](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-projects.html#create-Project-method)
+}

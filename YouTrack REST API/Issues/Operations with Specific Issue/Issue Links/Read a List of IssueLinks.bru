@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of IssueLinks
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/issues/:id/links?fields=id,idReadable,direction,linkType(name,localizedName,sourceToTarget,targetToSource,directed,aggregation),issues(id,idReadable,summary)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,idReadable,direction,linkType(name,localizedName,sourceToTarget,targetToSource,directed,aggregation),issues(id,idReadable,summary)
+}
+
+params:path {
+  id: {{issue}}
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Read a List of Projects
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/admin/projects?fields=id,name,shortName,createdBy(login,name,id),leader(login,name,id),key
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,shortName,createdBy(login,name,id),leader(login,name,id),key
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get a list of all available projects in the system.
+  
+  [https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-projects.html#get_all-Project-method](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-projects.html#get_all-Project-method)
+}

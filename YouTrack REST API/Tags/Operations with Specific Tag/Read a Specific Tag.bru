@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific Tag
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/tags/:id?fields=id,name,owner(login,name),visibleFor(name,id),issues(idReadable,summary)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,owner(login,name),visibleFor(name,id),issues(idReadable,summary)
+}
+
+params:path {
+  id: {{tagID}}
+}
+
+settings {
+  encodeUrl: true
+}

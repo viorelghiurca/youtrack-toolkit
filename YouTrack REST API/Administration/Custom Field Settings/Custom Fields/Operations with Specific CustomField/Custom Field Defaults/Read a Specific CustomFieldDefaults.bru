@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific CustomFieldDefaults
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/customFields/:id/fieldDefaults?fields=canBeEmpty,emptyFieldText,isPublic,parent(id,name)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: canBeEmpty,emptyFieldText,isPublic,parent(id,name)
+}
+
+params:path {
+  id: {{customFieldID}}
+}
+
+settings {
+  encodeUrl: true
+}

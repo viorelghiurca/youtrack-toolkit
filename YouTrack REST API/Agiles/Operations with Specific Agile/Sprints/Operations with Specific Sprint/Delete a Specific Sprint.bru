@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Specific Sprint
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/agiles/:id/sprints/:sprintId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{agileBoardID}}
+  sprintId: {{sprintID}}
+}
+
+settings {
+  encodeUrl: true
+}

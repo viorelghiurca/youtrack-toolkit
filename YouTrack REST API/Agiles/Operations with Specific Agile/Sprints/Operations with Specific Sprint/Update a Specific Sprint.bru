@@ -1,0 +1,37 @@
+meta {
+  name: Update a Specific Sprint
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/agiles/:id/sprints/:sprintId?fields=id,goal,isDefault,start,finish,name,previousSprint(start,finish,name,id),unresolvedIssuesCount
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,goal,isDefault,start,finish,name,previousSprint(start,finish,name,id),unresolvedIssuesCount
+}
+
+params:path {
+  id: {{agileBoardID}}
+  sprintId: {{sprintID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "goal": "Revise the list of public resources and entities",
+      "name": "Sprint 5: Public resources revision",
+      "start": 1569880800000,
+      "finish": 1572476400000
+  }
+}
+
+settings {
+  encodeUrl: true
+}

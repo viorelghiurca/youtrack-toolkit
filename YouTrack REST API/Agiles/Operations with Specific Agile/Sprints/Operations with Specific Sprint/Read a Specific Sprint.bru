@@ -1,0 +1,24 @@
+meta {
+  name: Read a Specific Sprint
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/agiles/:id/sprints/:sprintId?fields=id,archived,start,finish,goal,isDefault,name,previousSprint(finish,name,id),unresolvedIssuesCount
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,archived,start,finish,goal,isDefault,name,previousSprint(finish,name,id),unresolvedIssuesCount
+}
+
+params:path {
+  id: {{agileBoardID}}
+  sprintId: {{sprintID}}
+}
+
+settings {
+  encodeUrl: true
+}

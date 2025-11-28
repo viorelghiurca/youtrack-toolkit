@@ -1,0 +1,24 @@
+meta {
+  name: Read a Specific OwnedBundleElement
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/ownedField/:id/values/:ownedBundleElementId?fields=id,name,owner(id,login,fullName)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,owner(id,login,fullName)
+}
+
+params:path {
+  id: {{ownedBundleID}}
+  ownedBundleElementId: {{ownedBundleElementID}}
+}
+
+settings {
+  encodeUrl: true
+}

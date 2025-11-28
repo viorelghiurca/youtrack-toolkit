@@ -1,0 +1,24 @@
+meta {
+  name: Read a Specific ActivityItem
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/issues/:id/activities/:activityItemId?fields=id,author(name,login),timestamp,target(id,$type),targetMember,targetSubMember,removed(id,name),added(id,name)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,author(name,login),timestamp,target(id,$type),targetMember,targetSubMember,removed(id,name),added(id,name)
+}
+
+params:path {
+  id: {{issue}}
+  activityItemId: {{activityItemID}}
+}
+
+settings {
+  encodeUrl: true
+}

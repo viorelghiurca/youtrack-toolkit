@@ -1,0 +1,24 @@
+meta {
+  name: Read a Specific VersionBundleElement
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/version/:id/values/:versionBundleElementId?fields=id,name,archived,released,releaseDate,description
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,archived,released,releaseDate,description
+}
+
+params:path {
+  id: {{versionBundleID}}
+  versionBundleElementId: {{versionBundleElementID}}
+}
+
+settings {
+  encodeUrl: true
+}

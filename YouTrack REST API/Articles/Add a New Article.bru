@@ -1,0 +1,34 @@
+meta {
+  name: Add a New Article
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/articles?fields=hasStar,content,created,updated,id,idReadable,reporter(id,name),summary,project(id,shortName),content
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: hasStar,content,created,updated,id,idReadable,reporter(id,name),summary,project(id,shortName),content
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "project": {
+      "shortName": "NP",
+      "id": "{{projectID}}"
+    },
+    "summary": "Let Us Document Our Process",
+    "content": "Here are the guidelines for the development team:\n1. Cooperation.\n2. Collaboration.\n3. Appreciation."
+  }
+}
+
+settings {
+  encodeUrl: true
+}

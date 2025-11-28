@@ -1,0 +1,19 @@
+meta {
+  name: Delete a Specific WorkItemType
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/admin/timeTrackingSettings/workItemTypes/:workItemTypeId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  workItemTypeId: {{workItemTypeID}}
+}
+
+settings {
+  encodeUrl: true
+}

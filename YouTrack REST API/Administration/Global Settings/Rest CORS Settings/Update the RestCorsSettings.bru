@@ -1,0 +1,32 @@
+meta {
+  name: Update the RestCorsSettings
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/globalSettings/restSettings?fields=allowAllOrigins,allowedOrigins
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: allowAllOrigins,allowedOrigins
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "allowedOrigins": [
+      "https://domain.example:8080",
+      "https://internal.domain.example:8342"
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

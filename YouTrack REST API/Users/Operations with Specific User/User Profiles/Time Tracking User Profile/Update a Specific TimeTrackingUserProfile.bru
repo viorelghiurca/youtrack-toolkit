@@ -1,0 +1,35 @@
+meta {
+  name: Update a Specific TimeTrackingUserProfile
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/users/:id/profiles/timetracking?fields=periodFormat(id)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: periodFormat(id)
+}
+
+params:path {
+  id: {{userID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "periodFormat": {
+      "id": "FULL"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

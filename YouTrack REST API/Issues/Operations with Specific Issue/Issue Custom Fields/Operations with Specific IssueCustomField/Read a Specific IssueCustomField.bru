@@ -1,0 +1,24 @@
+meta {
+  name: Read a Specific IssueCustomField
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/issues/:id/customFields/:issueCustomFieldId?fields=id,name,value(id,name)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,value(id,name)
+}
+
+params:path {
+  id: {{issue}}
+  issueCustomFieldId: {{issueCustomFieldID}}
+}
+
+settings {
+  encodeUrl: true
+}

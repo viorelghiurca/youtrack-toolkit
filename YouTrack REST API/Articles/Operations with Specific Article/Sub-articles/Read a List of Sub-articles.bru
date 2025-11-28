@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of Sub-articles
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/articles/:id/childArticles?fields=id,summary,idReadable
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,summary,idReadable
+}
+
+params:path {
+  id: {{articleID}}
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific IssueLinkType
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/issueLinkTypes/:id?fields=aggregation,directed,id,name,readOnly,sourceToTarget,targetToSource
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: aggregation,directed,id,name,readOnly,sourceToTarget,targetToSource
+}
+
+params:path {
+  id: {{issueLinkTypeID}}
+}
+
+settings {
+  encodeUrl: true
+}

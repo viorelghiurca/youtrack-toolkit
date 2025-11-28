@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific ProjectTimeTrackingSettings
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/admin/projects/:id/timeTrackingSettings?fields=enabled,estimate(field(id,name),id),timeSpent(field(id,name),id),workItemTypes(id,name,autoAttached),attributes(id,name)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: enabled,estimate(field(id,name),id),timeSpent(field(id,name),id),workItemTypes(id,name,autoAttached),attributes(id,name)
+}
+
+params:path {
+  id: {{projectID}}
+}
+
+settings {
+  encodeUrl: true
+}

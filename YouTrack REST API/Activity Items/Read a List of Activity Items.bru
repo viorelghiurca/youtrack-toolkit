@@ -1,0 +1,28 @@
+meta {
+  name: Read a List of Activity Items
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/activities?fields=added,author(id,login,ringId),category(id),field(customField(fieldType(id),id,localizedName,name),id,name),id,removed,target,targetMember,timestamp&categories=IssueCreatedCategory,CommentsCategory&$skip=30&$top=3
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: added,author(id,login,ringId),category(id),field(customField(fieldType(id),id,localizedName,name),id,name),id,removed,target,targetMember,timestamp
+  categories: IssueCreatedCategory,CommentsCategory
+  $skip: 30
+  $top: 3
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get the list of all available activities.
+  
+  https://www.jetbrains.com/help/youtrack/devportal/resource-api-activities.html#get_all-ActivityItem-method
+}

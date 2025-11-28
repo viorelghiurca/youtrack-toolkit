@@ -1,0 +1,35 @@
+meta {
+  name: Update a Specific CustomFieldDefaults
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/customFields/:id/fieldDefaults?fields=canBeEmpty,emptyFieldText,isPublic,parent(id,name)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: canBeEmpty,emptyFieldText,isPublic,parent(id,name)
+}
+
+params:path {
+  id: {{customFieldID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "emptyFieldText": null,
+    "canBeEmpty": false,
+    "isPublic": false
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific Activity Item
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://example.youtrack.cloud/api/activities/:id?fields=id,author(id,login,name),timestamp,added(id,idreadable),target(id,idReadable)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,author(id,login,name),timestamp,added(id,idreadable),target(id,idReadable)
+}
+
+params:path {
+  id: {{activityItemID}}
+}
+
+settings {
+  encodeUrl: true
+}

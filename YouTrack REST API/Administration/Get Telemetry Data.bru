@@ -1,0 +1,19 @@
+meta {
+  name: Get Telemetry Data
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/admin/telemetry?fields=databaseSize,uptime,startedTime,textIndexSize
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: databaseSize,uptime,startedTime,textIndexSize
+}
+
+settings {
+  encodeUrl: true
+}

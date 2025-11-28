@@ -1,0 +1,31 @@
+meta {
+  name: Add a New User
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/user/:id/individuals?fields=name,id,login
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,login
+}
+
+params:path {
+  id: {{userBundleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "id" : "{{userID}}" }
+}
+
+settings {
+  encodeUrl: true
+}

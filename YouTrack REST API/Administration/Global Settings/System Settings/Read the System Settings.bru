@@ -1,0 +1,19 @@
+meta {
+  name: Read the System Settings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/globalSettings/systemSettings?fields=baseUrl,maxUploadFileSize,maxExportItems,allowStatisticsCollection,isApplicationReadOnly
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: baseUrl,maxUploadFileSize,maxExportItems,allowStatisticsCollection,isApplicationReadOnly
+}
+
+settings {
+  encodeUrl: true
+}

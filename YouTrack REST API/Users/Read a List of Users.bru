@@ -1,0 +1,19 @@
+meta {
+  name: Read a List of Users
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/users?fields=id,login,fullName,email,name,jabberAccount,online,avatarUrl,banned,tags(id,name,untagOnResolve,updateableBy(id,name),visibleFor(name,id),owner(id,login))
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,login,fullName,email,name,jabberAccount,online,avatarUrl,banned,tags(id,name,untagOnResolve,updateableBy(id,name),visibleFor(name,id),owner(id,login))
+}
+
+settings {
+  encodeUrl: true
+}

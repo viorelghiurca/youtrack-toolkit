@@ -1,0 +1,21 @@
+meta {
+  name: Delete a Specific Comment Reaction
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/articles/:articleId/comments/:commentId/reactions/:reactionId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  articleId: {{articleID}}
+  commentId: {{articleCommentID}}
+  reactionId: {{reactionID}}
+}
+
+settings {
+  encodeUrl: true
+}

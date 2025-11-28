@@ -1,0 +1,41 @@
+meta {
+  name: Add a New UserBundle
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/user?fields=id,name,aggregatedUsers(id,login)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,aggregatedUsers(id,login)
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "individuals": [
+      {
+        "id": "{{userID}}"
+      },
+      {
+        "id": "{{userID}}"
+      },
+      {
+        "id": "{{userID}}"
+      }
+    ],
+    "name": "Hero-team",
+    "isUpdateable": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Read the System Work Time Settings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/timeTrackingSettings/workTimeSettings?fields=id,name,workDays,firstDayOfWeek
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,workDays,firstDayOfWeek
+}
+
+settings {
+  encodeUrl: true
+}

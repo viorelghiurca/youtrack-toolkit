@@ -1,0 +1,34 @@
+meta {
+  name: Update a Specific OwnedBundleElement
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/ownedField/:id/values/:ownedBundleElementId?fields=id,name,owner(id,login,fullName)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,owner(id,login,fullName)
+}
+
+params:path {
+  id: {{ownedBundleID}}
+  ownedBundleElementId: {{ownedBundleElementID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Quality Assurance"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

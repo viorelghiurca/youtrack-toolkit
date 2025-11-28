@@ -1,0 +1,20 @@
+meta {
+  name: Remove a Tag from the Issue
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/issues/:id/tags/:issueTagId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{issue}}
+  issueTagId: {{tagID}}
+}
+
+settings {
+  encodeUrl: true
+}

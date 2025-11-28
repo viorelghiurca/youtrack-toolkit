@@ -1,0 +1,19 @@
+meta {
+  name: Read a Specific DatabaseBackupSettings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/databaseBackup/settings?fields=archiveFormat,availableDiskSpace,backupStatus(backupCancelled,backupError(date,errorMessage),backupInProgress,stopBackup),isOn,location,cronExpression,filesToKeep,notifiedUsers(login,name,id)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: archiveFormat,availableDiskSpace,backupStatus(backupCancelled,backupError(date,errorMessage),backupInProgress,stopBackup),isOn,location,cronExpression,filesToKeep,notifiedUsers(login,name,id)
+}
+
+settings {
+  encodeUrl: true
+}

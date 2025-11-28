@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of StateBundleElements
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/state/:id/values?fields=id,name,isResolved,localizedName,description
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,isResolved,localizedName,description
+}
+
+params:path {
+  id: {{stateBundleID}}
+}
+
+settings {
+  encodeUrl: true
+}

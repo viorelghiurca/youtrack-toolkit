@@ -1,0 +1,36 @@
+meta {
+  name: Add a New OwnedBundleElement
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/ownedField/:id/values?fields=id,name,owner(id,login,fullName)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,owner(id,login,fullName)
+}
+
+params:path {
+  id: {{ownedBundleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "owner": {
+      "id": "{{userID}}"
+    },
+    "name": "Release"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

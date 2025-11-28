@@ -1,0 +1,32 @@
+meta {
+  name: Add a New Tag
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/tags?fields=name,owner(login,name),visibleFor(name,id),issues(idReadable,summary)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: name,owner(login,name),visibleFor(name,id),issues(idReadable,summary)
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "name": "4theRelease!",
+      "visibleFor": {
+          "id": "{{groupID}}"
+      }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

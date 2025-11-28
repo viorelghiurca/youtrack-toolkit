@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific CustomField
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/customFields/:id?fields=id,name,fieldType(presentation,id),isUpdateable,isAutoAttached,isDisplayedInIssueList
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,fieldType(presentation,id),isUpdateable,isAutoAttached,isDisplayedInIssueList
+}
+
+params:path {
+  id: {{customFieldID}}
+}
+
+settings {
+  encodeUrl: true
+}

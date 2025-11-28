@@ -1,0 +1,68 @@
+meta {
+  name: Add a New StateBundle
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/state?fields=name,id,values(name,id,ordinal,isResolved),isUpdateable
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,values(name,id,ordinal,isResolved),isUpdateable
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "values": [
+      {
+        "isResolved": false,
+        "name": "Reported"
+      },
+      {
+        "isResolved": false,
+        "name": "Investigation"
+      },
+      {
+        "isResolved": false,
+        "name": "Delegated"
+      },
+      {
+        "isResolved": false,
+        "name": "On hold"
+      },
+      {
+        "isResolved": false,
+        "name": "Investigated"
+      },
+      {
+        "isResolved": false,
+        "name": "Waiting for reply"
+      },
+      {
+        "isResolved": false,
+        "name": "Replied"
+      },
+      {
+        "isResolved": false,
+        "name": "Reply confirmed"
+      },
+      {
+        "isResolved": true,
+        "name": "Resolved"
+      }
+    ],
+    "name": "ST States",
+    "isUpdateable": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}

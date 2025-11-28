@@ -1,0 +1,37 @@
+meta {
+  name: Add a New Agile
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/agiles?template=kanban&fields=id,name,owner(id,name),projects(id,name),sprints(id,name)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  template: kanban
+  fields: id,name,owner(id,name),projects(id,name),sprints(id,name)
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "name": "Kanban board",
+      "projects": [
+          {
+              "id": "{{projectID}}"
+          }
+      ],
+      "updateableByProjectBased": true,
+      "visibleForProjectBased": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}

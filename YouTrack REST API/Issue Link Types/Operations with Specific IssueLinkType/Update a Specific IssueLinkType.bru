@@ -1,0 +1,36 @@
+meta {
+  name: Update a Specific IssueLinkType
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/issueLinkTypes/:id?fields=aggregation,directed,id,name,readOnly,sourceToTarget,targetToSource
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: aggregation,directed,id,name,readOnly,sourceToTarget,targetToSource
+}
+
+params:path {
+  id: {{issueLinkTypeID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Group",
+    "targetToSource": "Part of",
+    "sourceToTarget": "Part of",
+    "aggregation": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}

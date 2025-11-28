@@ -1,0 +1,19 @@
+meta {
+  name: Delete a Specific Article
+  type: http
+  seq: 8
+}
+
+delete {
+  url: {{baseUrl}}/articles/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{articleID}}
+}
+
+settings {
+  encodeUrl: true
+}

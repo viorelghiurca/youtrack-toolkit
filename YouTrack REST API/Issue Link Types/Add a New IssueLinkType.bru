@@ -1,0 +1,34 @@
+meta {
+  name: Add a New IssueLinkType
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/issueLinkTypes?fields=aggregation,directed,id,name,readOnly,sourceToTarget,targetToSource
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: aggregation,directed,id,name,readOnly,sourceToTarget,targetToSource
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Part",
+    "targetToSource": "Part of",
+    "sourceToTarget": "Part of",
+    "aggregation": true,
+    "directed": false,
+    "readOnly": false
+  }
+}
+
+settings {
+  encodeUrl: true
+}

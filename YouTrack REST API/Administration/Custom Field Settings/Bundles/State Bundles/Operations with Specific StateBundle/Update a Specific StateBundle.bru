@@ -1,0 +1,39 @@
+meta {
+  name: Update a Specific StateBundle
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/state/:id?fields=name,id,values(name,id,ordinal,isResolved),isUpdateable
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,values(name,id,ordinal,isResolved),isUpdateable
+}
+
+params:path {
+  id: {{stateBundleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "States for Another Scrum Project",
+    "values": [
+      {
+        "isResolved": true,
+        "name": "Won't fix"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

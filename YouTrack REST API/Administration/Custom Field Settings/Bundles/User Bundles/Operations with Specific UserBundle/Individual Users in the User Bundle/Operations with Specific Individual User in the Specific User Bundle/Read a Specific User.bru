@@ -1,0 +1,24 @@
+meta {
+  name: Read a Specific User
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/user/:id/individuals/:userId?fields=name,id,login,guest,banned,online,email,ringId
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,login,guest,banned,online,email,ringId
+}
+
+params:path {
+  id: {{userBundleID}}
+  userId: {{userID}}
+}
+
+settings {
+  encodeUrl: true
+}

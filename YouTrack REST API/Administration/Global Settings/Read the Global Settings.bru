@@ -1,0 +1,19 @@
+meta {
+  name: Read the Global Settings
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/admin/globalSettings?fields=appearanceSettings(dateFieldFormat(id,presentation),timeZone(id,presentation)),id,license(freeUsername,id,isFreeLicenseUsed),localeSettings(id,locale(id,locale,name)),restSettings(allowAllOrigins,allowedOrigins,hubServiceOrigins,id),systemSettings(allowStatisticsCollection,baseUrl,id,maxExportItems,maxOrderedIssues,maxUploadFileSize),updateInfo(id,isChecking,result(date,downloadUrl,id,message,success,updateAvailable))
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: appearanceSettings(dateFieldFormat(id,presentation),timeZone(id,presentation)),id,license(freeUsername,id,isFreeLicenseUsed),localeSettings(id,locale(id,locale,name)),restSettings(allowAllOrigins,allowedOrigins,hubServiceOrigins,id),systemSettings(allowStatisticsCollection,baseUrl,id,maxExportItems,maxOrderedIssues,maxUploadFileSize),updateInfo(id,isChecking,result(date,downloadUrl,id,message,success,updateAvailable))
+}
+
+settings {
+  encodeUrl: true
+}

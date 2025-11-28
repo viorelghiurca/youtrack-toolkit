@@ -1,0 +1,31 @@
+meta {
+  name: Add a New ArticleAttachment
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/articles/:id/attachments?fields=id,name,author(id,name),created,updated,size,mimeType,extension,url
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,author(id,name),created,updated,size,mimeType,extension,url
+}
+
+params:path {
+  id: {{articleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {}
+}
+
+settings {
+  encodeUrl: true
+}

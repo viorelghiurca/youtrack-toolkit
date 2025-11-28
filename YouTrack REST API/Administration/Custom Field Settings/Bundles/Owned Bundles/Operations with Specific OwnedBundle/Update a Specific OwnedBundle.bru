@@ -1,0 +1,42 @@
+meta {
+  name: Update a Specific OwnedBundle
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/ownedField/:id?fields=id,name,values(owner(name,login,id),name,description)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,values(owner(name,login,id),name,description)
+}
+
+params:path {
+  id: {{ownedBundleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "values": [
+      {
+        "owner": {
+          "id": "{{userID}}",
+          "$type": "User"
+        },
+        "description": "Questions from users",
+        "name": "Support"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

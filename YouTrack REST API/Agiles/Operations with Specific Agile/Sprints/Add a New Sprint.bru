@@ -1,0 +1,39 @@
+meta {
+  name: Add a New Sprint
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/agiles/:id/sprints?fields=id,archived,start,finish,goal,isDefault,name,previousSprint(finish,name,id),unresolvedIssuesCount,issues(id,summary,description,idReadable)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,archived,start,finish,goal,isDefault,name,previousSprint(finish,name,id),unresolvedIssuesCount,issues(id,summary,description,idReadable)
+}
+
+params:path {
+  id: {{agileBoardID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "start": 1572562800000,
+      "finish": 1575068400000,
+      "goal": "Prepare the public BETA release",
+      "name": "Public BETA release",
+      "previousSprint": {
+          "id": "{{sprintID}}"
+      }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

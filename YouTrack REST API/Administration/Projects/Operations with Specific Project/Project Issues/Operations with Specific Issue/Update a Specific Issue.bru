@@ -1,0 +1,46 @@
+meta {
+  name: Update a Specific Issue
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/projects/:id/issues/:issueId?fields=id,idReadable,summary,description,customFields(id,name,value(id,name))
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,idReadable,summary,description,customFields(id,name,value(id,name))
+}
+
+params:path {
+  id: {{projectID}}
+  issueId: {{issue}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "summary": "Sample: update an issue in specific project",
+    "description": "This issue is a sample for updating an issue in specific project. Using the `api/admin/projects/:id/issues/:id` endpoint.",
+    "customFields": [
+      {
+        "value": {
+          "name": "Major",
+          "$type": "EnumBundleElement"
+        },
+        "name": "Priority",
+        "id": "{{issueCustomFieldID}}",
+        "$type": "SingleEnumIssueCustomField"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

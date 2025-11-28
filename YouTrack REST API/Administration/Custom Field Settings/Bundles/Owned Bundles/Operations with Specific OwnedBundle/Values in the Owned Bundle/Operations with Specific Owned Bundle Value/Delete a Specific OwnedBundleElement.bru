@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Specific OwnedBundleElement
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/ownedField/:id/values/:ownedBundleElementId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{ownedBundleID}}
+  ownedBundleElementId: {{ownedBundleElementID}}
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Read the Global Notification Settings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/globalSettings/notificationSettings?fields=emailSettings(isEnabled,host,port,mailProtocol,anonymous,login,from,replyTo),jabberSettings(isEnabled,host,port,login,serviceName)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: emailSettings(isEnabled,host,port,mailProtocol,anonymous,login,from,replyTo),jabberSettings(isEnabled,host,port,login,serviceName)
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,44 @@
+meta {
+  name: Update a Specific Project
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/admin/projects/:id?fields=id,name,timeTrackingEnabled,shortName,leader(login,name,id),description,createdBy(login,name,id)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,timeTrackingEnabled,shortName,leader(login,name,id),description,createdBy(login,name,id)
+}
+
+params:path {
+  id: {{projectID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "leader": {
+          "id": "{{userID}}"
+      },
+      "description": "A project created using REST API"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Update a project with specific ID.
+  
+  Put the ID of the project into the `sampleProject` variable or replace the variable with the project ID in the URL.
+  
+  [https://www.jetbrains.com/help/youtrack/devportal/operations-api-admin-projects.html#update-Project-method](https://www.jetbrains.com/help/youtrack/devportal/operations-api-admin-projects.html#update-Project-method)
+}

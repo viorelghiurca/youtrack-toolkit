@@ -1,0 +1,42 @@
+meta {
+  name: Add a New OwnedBundle
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/ownedField?fields=id,name,values(owner(name,login,id),name,description)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,values(owner(name,login,id),name,description)
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name" : "General Subsystems",
+    "isUpdateable" : true,
+    "values" : [
+      {
+        "name" : "Documentation",
+        "description" : "Docs and wording related issues"
+      },
+      {
+        "name" : "Core functionality"
+      },
+      {
+        "name" : "Testing"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

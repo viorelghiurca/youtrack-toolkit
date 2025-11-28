@@ -1,0 +1,19 @@
+meta {
+  name: Read a List of Agiles
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/agiles?fields=id,name,owner(id,name),projects(id,name),sprints(id,name)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,owner(id,name),projects(id,name),sprints(id,name)
+}
+
+settings {
+  encodeUrl: true
+}

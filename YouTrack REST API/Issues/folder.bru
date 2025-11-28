@@ -1,0 +1,48 @@
+meta {
+  name: Issues
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+docs {
+  #### Issues
+  
+  Resource that provides access to issues.
+  
+  [https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues.html](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues.html)
+  
+  ###### Issue Attributes
+  
+  | **Attribute** | **Type** | **Description** |
+  | --- | --- | --- |
+  | idReadable | String | The issue ID. `Read-only`. |
+  | created | Long | The timestamp of the moment when the issue was created. `Read-only`. `Can be null`. |
+  | updated | Long | The timestamp of the last update of the issue. `Read-only`. `Can be null`. |
+  | resolved | Long | The timestamp of the moment when the issue was assigned a state that is considered to be resolved. Returns `null` if the issue is still in an unresolved state. `Read-only`. `Can be null`. |
+  | numberInProject | Long | The issue number in the project. `Read-only`. |
+  | project | [  <br>Project](https://www.jetbrains.com/help/youtrack/devportal/api-entity-Project.html) | The project to which the issue is assigned. `Can be null`. |
+  | summary | String | The text that is entered as the issue summary. Can be null. |
+  | description | String | The text that is entered as the issue description. `Can be null`. |
+  | usesMarkdown | Boolean | When `true`, the issue description is parsed as Markdown. When `false`, the issue description is parsed as YouTrack Wiki. Changing this value does not transform the markup from one syntax to another. |
+  | wikifiedDescription | String | Issue description as it is shown in UI after processing with wiki/markdown (including HTML markup). `Read-only`. |
+  | reporter | [User](https://www.jetbrains.com/help/youtrack/devportal/api-entity-User.html) |   <br>  <br>The user who reported (created) the issue. `Read-only`. `Can be null`.  <br>  <br> |
+  | updater | [User](https://www.jetbrains.com/help/youtrack/devportal/api-entity-User.html) |   <br>  <br>The user who last updated the issue. `Read-only`. `Can be null`.  <br>  <br> |
+  | draftOwner | [  <br>User](https://www.jetbrains.com/help/youtrack/devportal/api-entity-User.html) | Creator of this draft if issue is a draft, null if issue was already reported. `Read-only`. `Can be null`. |
+  | isDraft | Boolean |   <br>  <br>`true` if issue is a draft, `false` if it was already reported. `Read-only`.  <br>  <br> |
+  | visibility | [Visibility](https://www.jetbrains.com/help/youtrack/devportal/api-entity-Visibility.html) | Visibility settings of the issue. They describe who is allowed to see the issue. `Can be null`. |
+  | votes | Int |   <br>  <br>Number of votes for this issue. `Read-only`.  <br>  <br> |
+  | comments | [Array of IssueComments](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueComment.html) | A list of comments for the issue. |
+  | commentsCount | Int | A number of comments in the issue. `Read-only`. |
+  | tags | [Array of IssueTags](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueTag.html) | The list of tags that are added to the issue. |
+  | links | [Array of IssueLinks](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueLink.html) | Issue links (for example, `relates to`, `parent for`, and so on). `Read-only`. |
+  | externalIssue | [ExternalIssue](https://www.jetbrains.com/help/youtrack/devportal/api-entity-ExternalIssue.html) |   <br>  <br>Reference to the issue or similar object in an originating third-party system. `Read-only`. `Can be null`.  <br>  <br> |
+  | customFields | [Array of IssueCustomFields](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueCustomField.html) | The collection of custom fields that are present in the issue. `Read-only`. |
+  | voters | [IssueVoters](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueVoters.html) | Object that contains data about voters for the issue and for its duplicates. `Read-only`. |
+  | watchers | [IssueWatchers](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueWatchers.html) | Object that contains data about users watching this issue or its duplicates. `Read-only`. |
+  | attachments | [Array of IssueAttachments](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueAttachment.html) | The list of attachments in the issue. |
+  | subtasks | [IssueLink](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueLink.html) | The list of sub-tasks of the issue. `Read-only`. |
+  | parent | [IssueLink](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueLink.html) | The parent issue for the current one. If the issue is not a sub-task of any issue, then null. `Read-only`. |
+}

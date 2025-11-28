@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of Project Articles
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/admin/projects/:projectId/articles?fields=id,summary,reporter(login)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,summary,reporter(login)
+}
+
+params:path {
+  projectId: {{projectID}}
+}
+
+settings {
+  encodeUrl: true
+}

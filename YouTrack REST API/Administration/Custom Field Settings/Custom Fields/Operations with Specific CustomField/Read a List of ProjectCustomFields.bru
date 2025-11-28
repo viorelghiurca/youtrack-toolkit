@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of ProjectCustomFields
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/customFields/:id/instances?fields=field(name,id),project(id,name),canBeEmpty,emptyFieldText,isPublic,ordinal
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: field(name,id),project(id,name),canBeEmpty,emptyFieldText,isPublic,ordinal
+}
+
+params:path {
+  id: {{customFieldID}}
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Delete a Specific Project
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{baseUrl}}/admin/projects/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{projectID}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Delete a project with specific ID.
+  
+  Put the ID of the project into the `sampleProject` variable or replace the variable with the project ID in the URL.
+  
+  [https://www.jetbrains.com/help/youtrack/devportal/operations-api-admin-projects.html#delete-Project-method](https://www.jetbrains.com/help/youtrack/devportal/operations-api-admin-projects.html#delete-Project-method)
+}

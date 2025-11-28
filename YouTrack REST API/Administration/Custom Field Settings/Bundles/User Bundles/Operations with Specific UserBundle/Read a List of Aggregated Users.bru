@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of Aggregated Users
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/user/:id/aggregatedUsers?fields=name,id
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: name,id
+}
+
+params:path {
+  id: {{userBundleID}}
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of Issue Sprints
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{baseUrl}}/issues/:id/sprints?fields=id,agile(id,name),name,goal,start,finish,archived
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,agile(id,name),name,goal,start,finish,archived
+}
+
+params:path {
+  id: {{issue}}
+}
+
+settings {
+  encodeUrl: true
+}

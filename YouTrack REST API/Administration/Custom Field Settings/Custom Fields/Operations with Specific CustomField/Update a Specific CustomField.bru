@@ -1,0 +1,38 @@
+meta {
+  name: Update a Specific CustomField
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/customFields/:id?fields=id,name,fieldType(id),fieldDefaults(canBeEmpty,emptyFieldText,bundle(id,name)),isDisplayedInIssueList,isPublic,isAutoAttached
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,fieldType(id),fieldDefaults(canBeEmpty,emptyFieldText,bundle(id,name)),isDisplayedInIssueList,isPublic,isAutoAttached
+}
+
+params:path {
+  id: {{customFieldID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "fieldDefaults": {
+      "emptyFieldText": "No version"
+    },
+    "isDisplayedInIssueList": true,
+    "isAutoAttached": true,
+    "isPublic": false
+  }
+}
+
+settings {
+  encodeUrl: true
+}

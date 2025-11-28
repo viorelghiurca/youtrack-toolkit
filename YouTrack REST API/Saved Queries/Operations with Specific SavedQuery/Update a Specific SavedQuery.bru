@@ -1,0 +1,37 @@
+meta {
+  name: Update a Specific SavedQuery
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/savedQueries/:id?fields=id,name,query,owner(login,name),visibleFor(name,id),issues(id,idReadable,summary)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,query,owner(login,name),visibleFor(name,id),issues(id,idReadable,summary)
+}
+
+params:path {
+  id: {{savedQueryID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "query": "in: SP Priority: Major #Unresolved",
+      "visibleFor": {
+          "id": "{{groupID}}"
+      },
+      "name": "Major Unresolved in SP"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

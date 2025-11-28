@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific User
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/users/:id?fields=name,login,banned,email,guest,online,tags(id,name,issues(idReadable)),savedQueries(name,issues(idReadable))
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: name,login,banned,email,guest,online,tags(id,name,issues(idReadable)),savedQueries(name,issues(idReadable))
+}
+
+params:path {
+  id: {{userID}}
+}
+
+settings {
+  encodeUrl: true
+}

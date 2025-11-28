@@ -1,0 +1,31 @@
+meta {
+  name: Update the Global Locale Settings
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/globalSettings/localeSettings?fields=locale(id,name,community,locale,language),isRTL
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: locale(id,name,community,locale,language),isRTL
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "locale": {
+      "id": "de_DE"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Read a List of Tags
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/tags?$top=3&fields=name,owner(login,name),visibleFor(name,id),issues(idReadable,summary)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $top: 3
+  fields: name,owner(login,name),visibleFor(name,id),issues(idReadable,summary)
+}
+
+settings {
+  encodeUrl: true
+}

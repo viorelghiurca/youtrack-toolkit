@@ -1,0 +1,19 @@
+meta {
+  name: Read the RestCorsSettings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/globalSettings/restSettings?fields=allowAllOrigins,allowedOrigins
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: allowAllOrigins,allowedOrigins
+}
+
+settings {
+  encodeUrl: true
+}

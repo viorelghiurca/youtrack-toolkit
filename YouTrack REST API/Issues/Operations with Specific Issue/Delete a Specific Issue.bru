@@ -1,0 +1,27 @@
+meta {
+  name: Delete a Specific Issue
+  type: http
+  seq: 13
+}
+
+delete {
+  url: {{baseUrl}}/issues/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{issue}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Delete the issue. Note that this operation can not be undone.
+  
+  Put the ID of the issue into the `sampleIssue` variable or replace the variable with the issue ID in the URL.
+  
+  [https://www.jetbrains.com/help/youtrack/devportal/operations-api-issues.html#delete-Issue-method](https://www.jetbrains.com/help/youtrack/devportal/operations-api-issues.html#delete-Issue-method)
+}

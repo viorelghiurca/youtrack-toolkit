@@ -1,0 +1,36 @@
+meta {
+  name: Update a Specific BuildBundleElement
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/build/:id/values/:buildBundleElementId?fields=id,name,assembleDate,description
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,assembleDate,description
+}
+
+params:path {
+  id: {{buildBundleID}}
+  buildBundleElementId: {{buildBundleElementID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "assembleDate": 1627984025000,
+    "description": null,
+    "name": "141"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

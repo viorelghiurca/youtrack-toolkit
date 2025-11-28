@@ -1,0 +1,24 @@
+meta {
+  name: Read a Specific UserGroup
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/user/:id/groups/:userGroupId?fields=name,id,usersCount,icon,allUsersGroup,teamForProject(name)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,usersCount,icon,allUsersGroup,teamForProject(name)
+}
+
+params:path {
+  id: {{userBundleID}}
+  userGroupId: {{groupID}}
+}
+
+settings {
+  encodeUrl: true
+}

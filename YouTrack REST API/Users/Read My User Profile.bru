@@ -1,0 +1,19 @@
+meta {
+  name: Read My User Profile
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/users/me?fields=id,login,name,email,savedQueries(name,id),tags(name,id),profiles(general(dateFieldFormat(presentation,pattern,datePattern),timezone(presentation,offset)),notifications(notifyOnOwnChanges,jabberNotificationsEnabled,emailNotificationsEnabled,mentionNotificationsEnabled,autoWatchOnUpdate,autoWatchOnVote,autoWatchOnComment,usePlainTextEmails,mailboxIntegrationNotificationsEnabled),timetracking(periodFormat(id)))
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,login,name,email,savedQueries(name,id),tags(name,id),profiles(general(dateFieldFormat(presentation,pattern,datePattern),timezone(presentation,offset)),notifications(notifyOnOwnChanges,jabberNotificationsEnabled,emailNotificationsEnabled,mentionNotificationsEnabled,autoWatchOnUpdate,autoWatchOnVote,autoWatchOnComment,usePlainTextEmails,mailboxIntegrationNotificationsEnabled),timetracking(periodFormat(id)))
+}
+
+settings {
+  encodeUrl: true
+}

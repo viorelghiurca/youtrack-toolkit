@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Specific IssueComment
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/issues/:id/comments/:issueCommentId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{issue}}
+  issueCommentId: {{issueCommentID}}
+}
+
+settings {
+  encodeUrl: true
+}

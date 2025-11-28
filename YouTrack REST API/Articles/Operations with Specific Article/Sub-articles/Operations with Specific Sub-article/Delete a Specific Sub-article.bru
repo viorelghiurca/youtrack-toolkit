@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Specific Sub-article
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/articles/:id/childArticles/:articleId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{articleID}}
+  articleId: {{subArticleID}}
+}
+
+settings {
+  encodeUrl: true
+}

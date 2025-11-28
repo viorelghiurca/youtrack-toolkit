@@ -1,0 +1,33 @@
+meta {
+  name: Update a Specific DatabaseBackupSettings
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/databaseBackup/settings?fields=archiveFormat,availableDiskSpace,backupStatus(backupCancelled,backupError(date,errorMessage),backupInProgress,stopBackup),isOn,filesToKeep,cronExpression,notifiedUsers(id,name,login)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: archiveFormat,availableDiskSpace,backupStatus(backupCancelled,backupError(date,errorMessage),backupInProgress,stopBackup),isOn,filesToKeep,cronExpression,notifiedUsers(id,name,login)
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "archiveFormat": "TAR_GZ",
+    "notifiedUsers":[{"id":"{{userID}}"}],
+    "isOn":true,
+    "cronExpression":"0 0 2 * * ?",
+    "filesToKeep":30
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of IssueTags of a Specific User
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/users/:id/tags?fields=id,name,isUpdatable,owner(id,login,name),untagOnResolve,updateableBy(id,name),visibleFor(id,name)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,isUpdatable,owner(id,login,name),untagOnResolve,updateableBy(id,name),visibleFor(id,name)
+}
+
+params:path {
+  id: {{userID}}
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Update the System Settings
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/globalSettings/systemSettings?fields=baseUrl,maxUploadFileSize,maxExportItems,allowStatisticsCollection,isApplicationReadOnly
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: baseUrl,maxUploadFileSize,maxExportItems,allowStatisticsCollection,isApplicationReadOnly
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "maxUploadFileSize": 20971520,
+    "maxExportItems": 250
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Read the Project of an Issue
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/issues/:id/project?fields=id,name,shortName
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,shortName
+}
+
+params:path {
+  id: {{issue}}
+}
+
+settings {
+  encodeUrl: true
+}

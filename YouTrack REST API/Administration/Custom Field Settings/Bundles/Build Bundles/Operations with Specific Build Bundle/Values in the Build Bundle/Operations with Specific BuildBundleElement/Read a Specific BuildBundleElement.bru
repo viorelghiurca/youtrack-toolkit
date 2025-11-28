@@ -1,0 +1,24 @@
+meta {
+  name: Read a Specific BuildBundleElement
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/build/:id/values/:buildBundleElementId?fields=id,name,assembleDate,description
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,assembleDate,description
+}
+
+params:path {
+  id: {{buildBundleID}}
+  buildBundleElementId: {{buildBundleElementID}}
+}
+
+settings {
+  encodeUrl: true
+}

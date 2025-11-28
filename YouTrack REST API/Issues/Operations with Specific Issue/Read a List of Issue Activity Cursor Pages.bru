@@ -1,0 +1,24 @@
+meta {
+  name: Read a List of Issue Activity Cursor Pages
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/issues/:id/activitiesPage?fields=id,beforeCursor,afterCursor,activities(id,author(name,login),timestamp)&categories=CommentsCategory,IssueCreatedCategory,SummaryCategory,WorkItemCategory,ProjectCategory,IssueVisibilityCategory,AttachmentsCategory
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,beforeCursor,afterCursor,activities(id,author(name,login),timestamp)
+  categories: CommentsCategory,IssueCreatedCategory,SummaryCategory,WorkItemCategory,ProjectCategory,IssueVisibilityCategory,AttachmentsCategory
+}
+
+params:path {
+  id: {{issue}}
+}
+
+settings {
+  encodeUrl: true
+}

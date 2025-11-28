@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific EnumBundle
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/enum/:id?fields=name,id,values(name,id,description,ordinal),isUpdateable
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,values(name,id,description,ordinal),isUpdateable
+}
+
+params:path {
+  id: {{enumBundleID}}
+}
+
+settings {
+  encodeUrl: true
+}

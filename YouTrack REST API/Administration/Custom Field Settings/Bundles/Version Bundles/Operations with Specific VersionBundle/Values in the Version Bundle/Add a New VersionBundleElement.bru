@@ -1,0 +1,34 @@
+meta {
+  name: Add a New VersionBundleElement
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/version/:id/values?fields=id,name,archived,released,releaseDate,description
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,archived,released,releaseDate,description
+}
+
+params:path {
+  id: {{versionBundleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "v.3.0",
+    "$type": "VersionBundleElement"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

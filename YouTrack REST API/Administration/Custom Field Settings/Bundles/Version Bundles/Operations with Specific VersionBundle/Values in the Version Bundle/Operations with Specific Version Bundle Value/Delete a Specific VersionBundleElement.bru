@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Specific VersionBundleElement
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/version/:id/values/:versionBundleElementId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{versionBundleID}}
+  versionBundleElementId: {{versionBundleElementID}}
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Read a List of Issues
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/issues?query=for:%20me%20%23Unresolved%20&fields=id,summary,description,reporter(login)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  query: for:%20me%20%23Unresolved%20
+  fields: id,summary,description,reporter(login)
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all issues that match specified query. If the query is not provided, the server returns all issues.
+  
+  [https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues.html#get_all-Issue-method](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues.html#get_all-Issue-method)
+}

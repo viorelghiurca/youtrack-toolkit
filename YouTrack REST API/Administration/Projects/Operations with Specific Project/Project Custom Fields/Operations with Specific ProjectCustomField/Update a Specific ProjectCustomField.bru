@@ -1,0 +1,34 @@
+meta {
+  name: Update a Specific ProjectCustomField
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/projects/:id/customFields/:projectCustomFieldId?fields=id,bundle(id,isUpdateable,name,values(archived,releaseDate,released,id,name)),canBeEmpty,emptyFieldText,field(name,aliases,id,isAutoAttached,isDisplayedInIssueList,isPublic,isUpdateable),project(id,name)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,bundle(id,isUpdateable,name,values(archived,releaseDate,released,id,name)),canBeEmpty,emptyFieldText,field(name,aliases,id,isAutoAttached,isDisplayedInIssueList,isPublic,isUpdateable),project(id,name)
+}
+
+params:path {
+  id: {{projectID}}
+  projectCustomFieldId: {{projectCustomFieldID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "emptyFieldText": "No version"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

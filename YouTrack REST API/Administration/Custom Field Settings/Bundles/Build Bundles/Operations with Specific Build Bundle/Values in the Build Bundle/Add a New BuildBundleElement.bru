@@ -1,0 +1,35 @@
+meta {
+  name: Add a New BuildBundleElement
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/build/:id/values?fields=id,name,assembleDate,description
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,assembleDate,description
+}
+
+params:path {
+  id: {{buildBundleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "assembleDate": 1627636495000,
+    "name": "139",
+    "$type": "BuildBundleElement"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

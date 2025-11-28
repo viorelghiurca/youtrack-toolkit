@@ -1,0 +1,42 @@
+meta {
+  name: Update a Specific IssueComment
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/issues/:id/comments/:issueCommentId?fields=id,author(login,name,id),deleted,text,updated,visibility(permittedGroups(name,id),permittedUsers(id,name,login))
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,author(login,name,id),deleted,text,updated,visibility(permittedGroups(name,id),permittedUsers(id,name,login))
+}
+
+params:path {
+  id: {{issue}}
+  issueCommentId: {{issueCommentID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "text": "okay, let's do it, @jane.doe. By the way, I'm updating this comment using REST.",
+      "visibility": {
+          "permittedGroups": [
+              {
+                  "id": "{{groupID}}"
+              }
+          ],
+          "$type": "LimitedVisibility"
+      }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

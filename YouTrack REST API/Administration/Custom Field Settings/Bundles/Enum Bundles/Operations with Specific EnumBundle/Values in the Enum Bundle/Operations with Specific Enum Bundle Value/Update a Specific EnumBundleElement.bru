@@ -1,0 +1,34 @@
+meta {
+  name: Update a Specific EnumBundleElement
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/enum/:id/values/:enumBundleElementId?fields=id,name
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name
+}
+
+params:path {
+  id: {{enumBundleID}}
+  enumBundleElementId: {{enumBundleElementID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Problem"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

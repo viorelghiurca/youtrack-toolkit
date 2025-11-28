@@ -1,0 +1,44 @@
+meta {
+  name: Add a New Issue
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/issues?fields=idReadable
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: idReadable
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "summary": "Houston!",
+    "description": "We have a problem!",
+    "project": {
+      "id": "{{projectID}}"
+    }
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Create new issue.
+  
+  Put the ID of the project into the `sampleProject` variable or replace the variable with the project ID in the request body.
+  
+  To get the project ID, send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-projects.html#get_all-Project-method) to `/api/admin/projects?fields=id,name,shortName` and find the ID of the target project.
+  
+  [https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues.html#create-Issue-method](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues.html#create-Issue-method)
+}

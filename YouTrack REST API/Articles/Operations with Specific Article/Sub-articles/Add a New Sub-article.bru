@@ -1,0 +1,34 @@
+meta {
+  name: Add a New Sub-article
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/articles/:id/childArticles?fields=id,idReadable,summary
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,idReadable,summary
+}
+
+params:path {
+  id: {{articleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "id": "{{subArticleID}}",
+    "$type": "Article"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

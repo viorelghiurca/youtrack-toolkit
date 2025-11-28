@@ -1,0 +1,35 @@
+meta {
+  name: Add a New Comment Reaction
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/articles/:articleId/comments/:commentId/reactions?fields=id,author(login),reaction
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,author(login),reaction
+}
+
+params:path {
+  articleId: {{articleID}}
+  commentId: {{articleCommentID}}
+}
+
+body:json {
+  {
+    "author": {
+      "login": "minnie.terry",
+      "id": "{{userID}}",
+      "$type": "User"
+    },
+    "reaction": "thanks"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

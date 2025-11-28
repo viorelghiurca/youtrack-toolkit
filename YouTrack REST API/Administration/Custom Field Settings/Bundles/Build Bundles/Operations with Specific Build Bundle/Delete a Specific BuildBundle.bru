@@ -1,0 +1,19 @@
+meta {
+  name: Delete a Specific BuildBundle
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/build/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{buildBundleID}}
+}
+
+settings {
+  encodeUrl: true
+}

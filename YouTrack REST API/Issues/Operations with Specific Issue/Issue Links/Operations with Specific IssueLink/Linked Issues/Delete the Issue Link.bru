@@ -1,0 +1,21 @@
+meta {
+  name: Delete the Issue Link
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/issues/:id/links/:issueLinkId/issues/:issueId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{issue}}
+  issueLinkId: {{issueLinkID}}
+  issueId: {{issueID}}
+}
+
+settings {
+  encodeUrl: true
+}

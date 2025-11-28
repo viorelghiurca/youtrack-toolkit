@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific NotificationsUserProfile
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/users/:id/profiles/notifications?fields=id,notifyOnOwnChanges,jabberNotificationsEnabled,emailNotificationsEnabled,mentionNotificationsEnabled,duplicateClusterNotificationsEnabled,mailboxIntegrationNotificationsEnabled,usePlainTextEmails,autoWatchOnComment,autoWatchOnVote,autoWatchOnUpdate
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,notifyOnOwnChanges,jabberNotificationsEnabled,emailNotificationsEnabled,mentionNotificationsEnabled,duplicateClusterNotificationsEnabled,mailboxIntegrationNotificationsEnabled,usePlainTextEmails,autoWatchOnComment,autoWatchOnVote,autoWatchOnUpdate
+}
+
+params:path {
+  id: {{userID}}
+}
+
+settings {
+  encodeUrl: true
+}

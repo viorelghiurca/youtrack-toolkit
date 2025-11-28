@@ -1,0 +1,33 @@
+meta {
+  name: Update a Specific WorkItemType
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/timeTrackingSettings/workItemTypes/:workItemTypeId?fields=name,id,autoAttached
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,autoAttached
+}
+
+params:path {
+  workItemTypeId: {{workItemTypeID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "autoAttached": false
+  }
+}
+
+settings {
+  encodeUrl: true
+}

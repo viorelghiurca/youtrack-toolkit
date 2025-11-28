@@ -1,0 +1,24 @@
+meta {
+  name: Read a Specific Article Tag
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/articles/:articleId/tags/:tagId?fields=id,name,owner(login,name),visibleFor(name,id)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,owner(login,name),visibleFor(name,id)
+}
+
+params:path {
+  articleId: {{articleID}}
+  tagId: {{tagID}}
+}
+
+settings {
+  encodeUrl: true
+}

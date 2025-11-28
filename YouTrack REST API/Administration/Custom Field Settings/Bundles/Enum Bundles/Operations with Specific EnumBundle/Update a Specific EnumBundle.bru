@@ -1,0 +1,43 @@
+meta {
+  name: Update a Specific EnumBundle
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/enum/:id?fields=name,id,values(name,id,description,ordinal),isUpdateable
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,values(name,id,description,ordinal),isUpdateable
+}
+
+params:path {
+  id: {{enumBundleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "values": [
+      {
+        "name": "Stranger Things"
+      },
+      {
+        "name": "Legion"
+      },
+      {
+        "name": "Good Omens"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

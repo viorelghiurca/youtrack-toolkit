@@ -1,0 +1,39 @@
+meta {
+  name: Add a New BuildBundle
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/build?fields=id,name,fieldType(presentation,id)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,fieldType(presentation,id)
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "values": [
+      {
+        "name": "11111.3.2342",
+        "$type": "BuildBundleElement"
+      },
+      {
+        "name": "11112.3.6528",
+        "$type": "BuildBundleElement"
+      }
+    ],
+    "name": "Base Builds"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

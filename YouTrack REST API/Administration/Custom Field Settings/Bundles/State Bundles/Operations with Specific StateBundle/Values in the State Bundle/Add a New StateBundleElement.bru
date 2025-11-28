@@ -1,0 +1,33 @@
+meta {
+  name: Add a New StateBundleElement
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/state/:id/values?fields=id,name,isResolved,localizedName,description
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,isResolved,localizedName,description
+}
+
+params:path {
+  id: {{stateBundleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Complete"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

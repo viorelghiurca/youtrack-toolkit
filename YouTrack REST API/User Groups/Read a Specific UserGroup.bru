@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific UserGroup
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/groups/:id?fields=id,name,ringId,usersCount,teamForProject(name,shortName)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,ringId,usersCount,teamForProject(name,shortName)
+}
+
+params:path {
+  id: {{groupID}}
+}
+
+settings {
+  encodeUrl: true
+}

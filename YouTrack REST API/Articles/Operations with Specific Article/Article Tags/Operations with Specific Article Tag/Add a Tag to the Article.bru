@@ -1,0 +1,41 @@
+meta {
+  name: Add a Tag to the Article
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/articles/:articleId/tags?fields=id,name,owner(login,name),visibleFor(name,id)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,owner(login,name),visibleFor(name,id)
+}
+
+params:path {
+  articleId: {{articleID}}
+}
+
+body:json {
+  {
+    "owner": {
+      "login": "minnie.terry",
+      "name": "Minnie Terry",
+      "$type": "User"
+    },
+    "visibleFor": {
+      "name": "All Users",
+      "id": "{{groupID}}",
+      "$type": "UserGroup"
+    },
+    "name": "tip",
+    "id": "{{tagID}}",
+    "$type": "Tag"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

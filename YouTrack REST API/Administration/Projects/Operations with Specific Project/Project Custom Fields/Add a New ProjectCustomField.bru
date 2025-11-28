@@ -1,0 +1,38 @@
+meta {
+  name: Add a New ProjectCustomField
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/projects/:id/customFields?fields=field(fieldType(valueType,id),name,id)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: field(fieldType(valueType,id),name,id)
+}
+
+params:path {
+  id: {{projectID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "field": {
+          "name": "Timer time",
+          "id": "{{customFieldID}}",
+          "$type": "CustomField"
+      },
+      "$type": "SimpleProjectCustomField"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

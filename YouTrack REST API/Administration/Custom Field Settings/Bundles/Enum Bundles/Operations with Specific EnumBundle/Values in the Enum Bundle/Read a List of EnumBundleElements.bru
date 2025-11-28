@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of EnumBundleElements
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/enum/:id/values?fields=id,name
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name
+}
+
+params:path {
+  id: {{enumBundleID}}
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,33 @@
+meta {
+  name: Add a New ArticleComment
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/articles/:id/comments?fields=id,author(id,name),text,created,visibility(permittedGroups(id,name),permittedUsers(id,name))
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,author(id,name),text,created,visibility(permittedGroups(id,name),permittedUsers(id,name))
+}
+
+params:path {
+  id: {{articleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "text": "Jane, please update the information in this article."
+  }
+}
+
+settings {
+  encodeUrl: true
+}

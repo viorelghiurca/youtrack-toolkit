@@ -1,0 +1,34 @@
+meta {
+  name: Get Issue Count
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/issuesGetter/count?fields=id,count
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,count
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "folder": {
+          "$type": "Project",
+          "id": "{{projectID}}"
+      },
+      "query": "for: john.smith ",
+      "unresolvedOnly": false
+  }
+}
+
+settings {
+  encodeUrl: true
+}

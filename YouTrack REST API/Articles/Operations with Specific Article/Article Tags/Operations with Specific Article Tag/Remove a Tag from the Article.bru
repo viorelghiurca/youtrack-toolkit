@@ -1,0 +1,20 @@
+meta {
+  name: Remove a Tag from the Article
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/api/articles/:articleId/tags/:tagId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  articleId: {{articleID}}
+  tagId: {{tagID}}
+}
+
+settings {
+  encodeUrl: true
+}

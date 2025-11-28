@@ -1,0 +1,34 @@
+meta {
+  name: Add a New Link to the Issue
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/issues/:id/links/:issueLinkId/issues?fields=id,idReadable,summary
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,idReadable,summary
+}
+
+params:path {
+  id: {{issue}}
+  issueLinkId: {{issueLinkID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "id": "{{issueID}}"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

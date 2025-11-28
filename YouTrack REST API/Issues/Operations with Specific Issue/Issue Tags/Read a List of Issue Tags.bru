@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of Issue Tags
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/issues/:id/tags?fields=name,owner(login,name),visibleFor(name,id)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: name,owner(login,name),visibleFor(name,id)
+}
+
+params:path {
+  id: {{issue}}
+}
+
+settings {
+  encodeUrl: true
+}

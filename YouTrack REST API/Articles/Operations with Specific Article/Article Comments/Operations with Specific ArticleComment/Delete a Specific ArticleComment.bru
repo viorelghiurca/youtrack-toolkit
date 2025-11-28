@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Specific ArticleComment
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/articles/:id/comments/:articleCommentId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{articleID}}
+  articleCommentId: {{articleCommentID}}
+}
+
+settings {
+  encodeUrl: true
+}

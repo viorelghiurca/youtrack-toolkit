@@ -1,0 +1,30 @@
+meta {
+  name: Add a New WorkItemType
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/timeTrackingSettings/workItemTypes?fields=name,id,autoAttached
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,autoAttached
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "R&D",
+    "autoAttached": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}

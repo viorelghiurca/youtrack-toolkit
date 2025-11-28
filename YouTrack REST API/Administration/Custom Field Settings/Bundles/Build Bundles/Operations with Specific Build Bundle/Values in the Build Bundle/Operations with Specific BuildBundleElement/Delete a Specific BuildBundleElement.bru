@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Specific BuildBundleElement
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/build/:id/values/:buildBundleElementId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{buildBundleID}}
+  buildBundleElementId: {{buildBundleElementID}}
+}
+
+settings {
+  encodeUrl: true
+}

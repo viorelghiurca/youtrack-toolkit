@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of IssueAttachments
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/issues/:id/attachments?fields=id,name,author(id,name),created,updated,size,mimeType,extension,charset,metaData,url
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,author(id,name),created,updated,size,mimeType,extension,charset,metaData,url
+}
+
+params:path {
+  id: {{issue}}
+}
+
+settings {
+  encodeUrl: true
+}

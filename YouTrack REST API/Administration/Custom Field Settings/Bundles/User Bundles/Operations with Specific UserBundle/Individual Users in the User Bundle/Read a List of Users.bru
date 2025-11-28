@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of Users
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/user/:id/individuals?fields=name,id,login
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,login
+}
+
+params:path {
+  id: {{userBundleID}}
+}
+
+settings {
+  encodeUrl: true
+}

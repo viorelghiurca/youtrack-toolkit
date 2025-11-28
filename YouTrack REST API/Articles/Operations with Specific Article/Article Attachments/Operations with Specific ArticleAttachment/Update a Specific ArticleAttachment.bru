@@ -1,0 +1,32 @@
+meta {
+  name: Update a Specific ArticleAttachment
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/articles/:id/attachments/:articleAttachmentId?fields=id,name,author(id,name),created,updated,size,mimeType,extension,url
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,author(id,name),created,updated,size,mimeType,extension,url
+}
+
+params:path {
+  id: {{articleID}}
+  articleAttachmentId: {{articleAttachmentID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {"name": "jetbrains_logo.png"}
+}
+
+settings {
+  encodeUrl: true
+}

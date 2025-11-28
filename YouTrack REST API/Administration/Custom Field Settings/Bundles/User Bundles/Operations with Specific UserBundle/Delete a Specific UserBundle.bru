@@ -1,0 +1,19 @@
+meta {
+  name: Delete a Specific UserBundle
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/user/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{userBundleID}}
+}
+
+settings {
+  encodeUrl: true
+}

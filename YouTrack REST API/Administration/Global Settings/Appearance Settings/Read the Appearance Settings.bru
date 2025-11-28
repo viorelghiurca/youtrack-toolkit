@@ -1,0 +1,19 @@
+meta {
+  name: Read the Appearance Settings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/globalSettings/appearanceSettings?fields=dateFieldFormat(datePattern,pattern,presentation),timeZone(id,presentation,offset)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: dateFieldFormat(datePattern,pattern,presentation),timeZone(id,presentation,offset)
+}
+
+settings {
+  encodeUrl: true
+}

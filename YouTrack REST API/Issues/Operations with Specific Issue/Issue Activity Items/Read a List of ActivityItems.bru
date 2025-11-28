@@ -1,0 +1,24 @@
+meta {
+  name: Read a List of ActivityItems
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/issues/:id/activities?fields=id,author(name,login),timestamp,target(id,text),authorGroup(id,name)&categories=CommentsCategory,IssueCreatedCategory,SummaryCategory,WorkItemCategory,ProjectCategory,IssueVisibilityCategory,AttachmentsCategory
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,author(name,login),timestamp,target(id,text),authorGroup(id,name)
+  categories: CommentsCategory,IssueCreatedCategory,SummaryCategory,WorkItemCategory,ProjectCategory,IssueVisibilityCategory,AttachmentsCategory
+}
+
+params:path {
+  id: {{issue}}
+}
+
+settings {
+  encodeUrl: true
+}

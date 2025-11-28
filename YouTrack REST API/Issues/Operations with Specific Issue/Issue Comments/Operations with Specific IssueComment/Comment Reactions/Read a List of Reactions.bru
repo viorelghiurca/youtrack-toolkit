@@ -1,0 +1,24 @@
+meta {
+  name: Read a List of Reactions
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/issues/:issueId/comments/:commentId/reactions?fields=id,author(login),reaction
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,author(login),reaction
+}
+
+params:path {
+  issueId: {{issueID}}
+  commentId: {{issueCommentID}}
+}
+
+settings {
+  encodeUrl: true
+}

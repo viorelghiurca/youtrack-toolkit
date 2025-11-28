@@ -1,0 +1,44 @@
+meta {
+  name: Execute a Command
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/commands?fields=issues(id,idReadable),query,visibility(permittedGroups(id,name),permittedUsers(id,login))
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: issues(id,idReadable),query,visibility(permittedGroups(id,name),permittedUsers(id,login))
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "query": "for me ",
+    "issues": [
+      {
+        "idReadable": "{{issue}}"
+      }
+    ],
+    "silent": true,
+    "comment": "Still cannot reproduce.",
+    "visibility": {
+      "$type": "CommandLimitedVisibility",
+      "permittedGroups": [
+        {
+          "id": "{{groupID}}"
+        }
+      ]
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of Issues
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/admin/projects/:id/issues?fields=id,idReadable,summary
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,idReadable,summary
+}
+
+params:path {
+  id: {{projectID}}
+}
+
+settings {
+  encodeUrl: true
+}

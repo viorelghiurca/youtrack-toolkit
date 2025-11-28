@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific Agile
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/agiles/:id?fields=id,name,owner(id,name,login),projects(id,name),sprints(id,name),visibleFor(name,id),visibleForProjectBased,updateableBy(id,name),updateableByProjectBased,hideOrphansSwimlane,orphansAtTheTop,currentSprint(id,name),columnSettings(field(id,name),columns(presentation,isResolved,fieldValues(id,name)))
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,owner(id,name,login),projects(id,name),sprints(id,name),visibleFor(name,id),visibleForProjectBased,updateableBy(id,name),updateableByProjectBased,hideOrphansSwimlane,orphansAtTheTop,currentSprint(id,name),columnSettings(field(id,name),columns(presentation,isResolved,fieldValues(id,name)))
+}
+
+params:path {
+  id: {{agileBoardID}}
+}
+
+settings {
+  encodeUrl: true
+}

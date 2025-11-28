@@ -1,0 +1,36 @@
+# Logs
+*.log
+
+# Environment files (may contain tokens)
+.env
+.env.local
+.env.*.local
+
+# Bruno environments (may contain secrets)
+YouTrack REST API/environments/*.bru
+
+# Export output directories
+/export/
+/output/
+/*-Export/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+

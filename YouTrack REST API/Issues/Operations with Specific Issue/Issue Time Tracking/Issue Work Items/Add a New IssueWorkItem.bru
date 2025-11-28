@@ -1,0 +1,44 @@
+meta {
+  name: Add a New IssueWorkItem
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/issues/:id/timeTracking/workItems?fields=author(id,name),creator(id,name),date,duration(id,minutes,presentation),id,name,text,type(id,name)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: author(id,name),creator(id,name),date,duration(id,minutes,presentation),id,name,text,type(id,name)
+}
+
+params:path {
+  id: {{issue}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "usesMarkdown": true,
+    "text": "I keep on testing *samples*.",
+    "date": 1539000000000,
+    "author": {
+      "id": "{{userID}}"
+    },
+    "duration": {
+      "minutes": 120
+    },
+    "type": {
+      "id": "{{workItemTypeID}}"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,31 @@
+meta {
+  name: Update the Appearance Settings
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/admin/globalSettings/appearanceSettings?fields=dateFieldFormat(id,presentation),timeZone(id,presentation)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: dateFieldFormat(id,presentation),timeZone(id,presentation)
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "timeZone": {
+      "id": "Europe/Berlin"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

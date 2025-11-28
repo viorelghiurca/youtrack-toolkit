@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of ArticleComments
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/articles/:id/comments?fields=id,author(id,name),text,created,visibility(permittedGroups(id,name),permittedUsers(id,name))
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,author(id,name),text,created,visibility(permittedGroups(id,name),permittedUsers(id,name))
+}
+
+params:path {
+  id: {{articleID}}
+}
+
+settings {
+  encodeUrl: true
+}

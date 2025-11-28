@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of ArticleAttachments
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/articles/:id/attachments?fields=id,name,author(id,name),created,updated,size,mimeType,extension,url
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,author(id,name),created,updated,size,mimeType,extension,url
+}
+
+params:path {
+  id: {{articleID}}
+}
+
+settings {
+  encodeUrl: true
+}

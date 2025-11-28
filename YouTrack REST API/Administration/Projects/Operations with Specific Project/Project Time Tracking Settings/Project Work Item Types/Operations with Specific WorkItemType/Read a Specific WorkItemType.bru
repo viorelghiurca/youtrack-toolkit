@@ -1,0 +1,24 @@
+meta {
+  name: Read a Specific WorkItemType
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/projects/:id/timeTrackingSettings/workItemTypes/:workItemTypeId?fields=id,name,autoAttached
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,autoAttached
+}
+
+params:path {
+  id: {{projectID}}
+  workItemTypeId: {{workItemTypeID}}
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,117 @@
+meta {
+  name: YouTrack REST API
+}
+
+auth {
+  mode: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+vars:pre-request {
+  baseUrl: https://support.beko-group.com/api
+  token: perm:di5naGl1cmNh.NTItNg==.YOL9jNpJMMVcGwj8z4DPEBAJG5xpPg
+  activityItemID: 4-3.0-0
+  agileBoardID: 81-0
+  articleID: 226-0
+  articleAttachmentID: 225-32
+  articleCommentID: 156-34
+  backupFileName: 2019-02-09-19-03-45.tar.gz
+  buildBundleID: 86-1
+  buildBundleElementID: 150-5
+  customFieldID: 46-0
+  enumBundleID: 54-1
+  enumBundleElementID: 55-308
+  groupID: 3-5
+  issue: DEMO-1
+  issueID: 2-42
+  issueAttachmentID: 7-2
+  issueCommentID: 4-3
+  issueCustomFieldID: 92-2
+  issueLinkID: 80-2s
+  issueLinkTypeID: 41-0
+  tagID: 146-13
+  ownedBundleID: 83-10
+  ownedBundleElementID: 148-14
+  periodProjectCustomFieldID: 131-57
+  projectID: 0-0
+  projectCustomFieldID: 128-174
+  savedQueryID: 51-33
+  sprintID: 91-38
+  stateBundleID: 56-0
+  stateBundleElementID: 57-327
+  subArticleID: 92-3
+  userID: 1-1
+  userBundleID: 23-0
+  versionBundleID: 59-2
+  versionBundleElementID: 115-4
+  workItemID: 115-7
+  workItemTypeID: 49-0
+  reactionID: 334-0
+}
+
+docs {
+  Welcome to the [YouTrack](jetbrains.com/youtrack) workspace!
+  
+  Here you will find a collection of requests that you can make with the YouTrack REST API.
+  
+  This collection is maintained by the YouTrack team. If you have any questions related to the collection or to the YouTrack REST API, please send us a message to `youtrack-support@jetbrains.com`.
+  
+  To use this collection, fork it to your workspace and change the collection variables to the values relevant to your environment.
+  
+  For the full YouTrack REST API documentation, see [YouTrack REST API Reference](https://www.jetbrains.com/help/youtrack/devportal/youtrack-rest-api.html).
+  
+  #### Main Collection Variables
+  
+  Set these two main variables and you can start using the YouTrack REST API collection.
+  
+  | **Variable** | **Description** |
+  | --- | --- |
+  | baseUrl | The Base REST API URL of the YouTrack service.  <br>For more info, see [REST API URL and Endpoints](https://www.jetbrains.com/help/youtrack/devportal/api-url-and-endpoints.html). |
+  | token | The permanent token for the user account that you use to log in to YouTrack.  <br>For more info on how to create a permanent token, see [Create a Permanent Token](https://www.jetbrains.com/help/youtrack/devportal/Manage-Permanent-Token.html#obtain-permanent-token). |
+  
+  #### Additional Variables
+  
+  You will need some of these variables for specific requests. Check the documentation for each request to find out if you need any additional variables for it.
+  
+  | **Variable** | **Description** |
+  | --- | --- |
+  | activityItemID | The database ID of a sample activity item.  <br>To get the ID of an [activity item](https://www.jetbrains.com/help/youtrack/devportal/api-entity-ActivityItem.html) in an issue, send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues-issueID-comments.html#get_all-IssueComment-method) to `/api/issues/{{sampleIssue}}/activities?fields=id,author(name,login),timestamp,target(id,text)&categories={{Category}}` and find the ID of the target activity item. To learn about available activity categories, see [ActivityCategory](https://www.jetbrains.com/help/youtrack/devportal/api-entity-ActivityCategory.html). |
+  | agileBoardID | The database ID of a sample agile board.  <br>To get the ID of an [agile board](https://www.jetbrains.com/help/youtrack/devportal/api-entity-Agile.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-agiles.html#get_all-Agile-method) to `/api/agiles?fields=id,name` and find the ID of the target agile board. |
+  | articleID | The ID of a sample article. In most requests, you can use the article ID as seen in the interface.  <br>To get the database ID of an [article](https://www.jetbrains.com/help/youtrack/devportal/api-entity-Article.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-articles.html#get_all-Article-method) to `/api/articles?fields=id,summary` and find the ID of the target article. |
+  | articleAttachmentID | The database ID of a sample article attachment.  <br>To get the ID of an [article attachment](https://www.jetbrains.com/help/youtrack/devportal/api-entity-ArticleAttachment.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-articles-articleID-attachments.html#get_all-ArticleAttachment-method) to `/api/articles/{{articleID}}/attachments?fields=id,name` and find the ID of the target article attachment. |
+  | articleCommentID | The database ID of a sample comment to an article.  <br>To get the ID of a [comment](https://www.jetbrains.com/help/youtrack/devportal/api-entity-ArticleComment.html) to an article, send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-articles-articleID-comments.html#get_all-ArticleComment-method) to `/api/articles/{{articleID}}/comments?fields=id,author(id,name),text,created` and find the ID of the target comment. |
+  | backupFileName | The name of a sample backup file.  <br>To get the name of a [backup file](https://www.jetbrains.com/help/youtrack/devportal/api-entity-BackupFile.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-databaseBackup-backups.html#get_all-BackupFile-method) to `/api/admin/databaseBackup/backups?fields=id,name` and find the name of the target backup file. |
+  | buildBundleID | The database ID of a sample set of build custom field values.  <br>To get the ID of a [BuildBundle](https://www.jetbrains.com/help/youtrack/devportal/api-entity-BuildBundle.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-customFieldSettings-bundles-build.html#get_all-BuildBundle-method) to `/api/admin/customFieldSettings/bundles/build?fields=id,name` and find the ID of the target build bundle. |
+  | buildBundleElementID | The database ID of a sample value from a set of build custom field values.  <br>To get the ID of a [BuildBundleElement](https://www.jetbrains.com/help/youtrack/devportal/api-entity-BuildBundleElement.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-customFieldSettings-bundles-build-bundleID-values.html#get_all-BuildBundleElement-method) to `/api/admin/customFieldSettings/bundles/build/{{buildBundleID}}/values?fields=id,name` and find the ID of the target build element. |
+  | customFieldID | The database ID of a sample common custom field.  <br>To get the ID of a [CustomField](https://www.jetbrains.com/help/youtrack/devportal/api-entity-CustomField.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-customFieldSettings-customFields.html#get_all-CustomField-method) to `/api/admin/customFieldSettings/customFields?fields=id,name` and find the ID of the target custom field. |
+  | enumBundleID | The database ID of a sample set of enum custom field values.  <br>To get the ID of an [EnumBundle](https://www.jetbrains.com/help/youtrack/devportal/api-entity-EnumBundle.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-customFieldSettings-bundles-enum.html#get_all-EnumBundle-method) to `/api/admin/customFieldSettings/bundles/enum?fields=id,name` and find the ID of the target enum bundle. |
+  | enumBundleElementID | The database ID of a sample value from a set of enum custom field values.  <br>To get the ID of an [EnumBundleElement](https://www.jetbrains.com/help/youtrack/devportal/api-entity-EnumBundleElement.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-customFieldSettings-bundles-enum-bundleID-values.html#get_all-EnumBundleElement-method) to `/api/admin/customFieldSettings/bundles/enum/{{enumBundleID}}/values?fields=id,name` and find the ID of the target enum element. |
+  | groupID | The database ID of a sample user group.  <br>To get the ID of a [user group](https://www.jetbrains.com/help/youtrack/devportal/api-entity-UserGroup.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-groups.html#get_all-UserGroup-method) to `/api/groups?fields=id,login` and find the ID of the target user group. |
+  | issue | The human-readable ID of a sample [issue](https://www.jetbrains.com/help/youtrack/devportal/api-entity-Issue.html). In most requests, you can use the issue ID as seen in the interface. |
+  | issueID | The database ID of a sample issue.  <br>To get the ID of an [issue](https://www.jetbrains.com/help/youtrack/devportal/api-entity-Issue.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues.html#get_all-Issue-method) to `/api/issues?fields=id,summary` and find the ID of the target issue. |
+  | issueAttachmentID | The database ID of a sample issue attachment.  <br>To get the ID of an [issue attachment](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueAttachment.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues-issueID-attachments.html#get_all-IssueAttachment-method) to `/api/issues/{{sampleIssue}}/attachments?fields=id,name` and find the ID of the target issue attachment. |
+  | issueCommentID | The database ID of a sample comment to an issue.  <br>To get the ID of an [issue comment](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueComment.html) to an issue, send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues-issueID-comments.html#get_all-IssueComment-method) to `/api/issues/{{sampleIssue}}/comments?fields=id,text` and find the ID of the target comment. |
+  | issueCustomFieldID | The database ID of a sample issue custom field.  <br>To get the ID of an [IssueCustomField](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueCustomField.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues-issueID-customFields.html#get_all-IssueCustomField-method) to `/api/issues/{{sampleIssue}}/fields?fields=id,name` and find the ID of the target issue custom field. |
+  | issueLinkID | The database ID of a sample link between two issues.  <br>To get the name of an [issue link](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueLink.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues-issueID-links.html#get_all-IssueLink-method) to `/api/issues/{{sampleIssue}}/links?fields=id,idReadable,direction,linkType(name,localizedName,sourceToTarget,targetToSource,directed,aggregation),issues(id,idReadable,summary)` and find the ID of the target issue link. |
+  | issueLinkTypeID | The database ID of a sample issue link type.  <br>To get the ID of an [issue link type](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueLinkType.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issueLinkTypes.html#get_all-IssueLinkType-method) to `/api/issueLinkTypes?fields=id,name,aggregation,directed,sourceToTarget,targetToSource` and find the ID of the target link type. |
+  | issueTagID | The database ID of a sample issue tag.  <br>To get the ID of a [tag](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueTag.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issueTags.html#get_all-IssueTag-method) to `/api/issueTags?fields=id,name` and find the ID of the target tag. |
+  | ownedBundleID | The database ID of a sample set of owned custom field values.  <br>To get the ID of an [OwnedBundle](https://www.jetbrains.com/help/youtrack/devportal/api-entity-OwnedBundle.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-customFieldSettings-bundles-ownedField.html#get_all-OwnedBundle-method) to `/api/admin/customFieldSettings/bundles/ownedField?fields=id,name` and find the ID of the target owned bundle. |
+  | ownedBundleElementID | The database ID of a sample value from a set of owned custom field values.  <br>To get the ID of an [OwnedBundleElement](https://www.jetbrains.com/help/youtrack/devportal/api-entity-OwnedBundleElement.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-customFieldSettings-bundles-ownedField-bundleID-values.html#get_all-OwnedBundleElement-method) to `/api/admin/customFieldSettings/bundles/ownedField/{{ownedBundleID}}/values?fields=id,name` and find the ID of the target owned element. |
+  | periodProjectCustomFieldID | The database ID of a sample project custom field of period type.  <br>To get the ID of a [PeriodProjectCustomField](https://www.jetbrains.com/help/youtrack/devportal/api-entity-PeriodProjectCustomField.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-projects-projectID-customFields.html#get_all-ProjectCustomField-method) to `/api/admin/projects/{{sampleProjectID}}/customFields?fields=id,field(name,fieldType)` and find the ID of the target period custom field. |
+  | projectID | The database ID of a sample project.  <br>To get the ID of a [project](https://www.jetbrains.com/help/youtrack/devportal/api-entity-Project.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-projects.html#get_all-Project-method) to `/api/admin/projects?fields=id,name,shortName` and find the ID of the target project. |
+  | projectCustomFieldID | The database ID of a sample project custom field.  <br>To get the ID of a [ProjectCustomField](https://www.jetbrains.com/help/youtrack/devportal/api-entity-ProjectCustomField.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-projects-projectID-customFields.html#get_all-ProjectCustomField-method) to `/api/admin/projects/{{sampleProjectID}}/customFields?fields=id,field(name,fieldType)` and find the ID of the target project custom field. |
+  | savedQueryID | The database ID of a sample saved search.  <br>To get the ID of a [saved search](https://www.jetbrains.com/help/youtrack/devportal/api-entity-SavedQuery.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-savedQueries.html#get_all-SavedQuery-method) to `/api/savedQueries?fields=id,name,query` and find the ID of the target saved search. |
+  | sprintID | The database ID of a sample sprint on an agile board.  <br>To get the ID of a [sprint](https://www.jetbrains.com/help/youtrack/devportal/api-entity-Sprint.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-agiles-agileID-sprints.html#get_all-Sprint-method) to `/api/agiles/{{agileBoardID}}/sprints?fields=id,name,start,finish` and find the ID of the target sprint. |
+  | stateBundleID | The database ID of a sample set of state custom field values.  <br>To get the ID of a [StateBundle](https://www.jetbrains.com/help/youtrack/devportal/api-entity-StateBundle.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-customFieldSettings-bundles-state.html#get_all-StateBundle-method) to `/api/admin/customFieldSettings/bundles/state?fields=id,name` and find the ID of the target state bundle. |
+  | stateBundleElementID | The database ID of a sample value from a set of state custom field values.  <br>To get the ID of an [StateBundleElement](https://www.jetbrains.com/help/youtrack/devportal/api-entity-StateBundleElement.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-customFieldSettings-bundles-state-bundleID-values.html#get_all-StateBundleElement-method) to `/api/admin/customFieldSettings/bundles/state/{{stateBundleID}}/values?fields=id,name` and find the ID of the target state element. |
+  | subArticleID | The database ID of a sample sub-article.  <br>To get the ID of a [sub-article](https://www.jetbrains.com/help/youtrack/devportal/api-entity-Article.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-articles-articleID-childArticles.html#get_all-Article-method) to `/api/articles/{{articleID}}/childArticles?fields=id,summary,idReadable` and find the ID of the target sub-article. |
+  | userID | The database ID of a sample user.  <br>To get the ID of a [user](https://www.jetbrains.com/help/youtrack/devportal/api-entity-User.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-users.html#get_all-User-method) to `/api/users?fields=id,login` and find the ID of the target user. |
+  | userBundleID | The database ID of a sample set of users.  <br>To get the ID of a [UserBundle](https://www.jetbrains.com/help/youtrack/devportal/api-entity-UserBundle.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-customFieldSettings-bundles-user.html#get_all-UserBundle-method) to `/api/admin/customFieldSettings/bundles/user?fields=id,name` and find the ID of the target user bundle. |
+  | versionBundleID | The database ID of a sample set of version custom field values.  <br>To get the ID of a [VersionBundle](https://www.jetbrains.com/help/youtrack/devportal/api-entity-VersionBundle.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-customFieldSettings-bundles-version.html#get_all-VersionBundle-method) to `/api/admin/customFieldSettings/bundles/version?fields=id,name` and find the ID of the target version bundle. |
+  | versionBundleElementID | The database ID of a sample value from a set of version custom field values.  <br>To get the ID of an [VersionBundleElement](https://www.jetbrains.com/help/youtrack/devportal/api-entity-VersionBundleElement.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-customFieldSettings-bundles-version-bundleID-values.html#get_all-VersionBundleElement-method) to `/api/admin/customFieldSettings/bundles/versrion/{{versionBundleID}}/values?fields=id,name` and find the ID of the target version element. |
+  | workItemID | The database ID of a sample work item.  <br>To get the ID of a [work item](https://www.jetbrains.com/help/youtrack/devportal/api-entity-IssueWorkItem.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-issues-issueID-timeTracking-workItems.html#get_all-IssueWorkItem-method) to `/api/issues/{{sampleIssue}}/timeTracking/workItems?fields=id,author(id,name),date,duration(id,minutes,presentation)` and find the ID of the target work item. |
+  | workItemTypeID | The database ID of a sample work item type.  <br>To get the ID of a [work item type](https://www.jetbrains.com/help/youtrack/devportal/api-entity-WorkItemType.html), send a [GET request](https://www.jetbrains.com/help/youtrack/devportal/resource-api-admin-timeTrackingSettings-workItemTypes.html#get_all-WorkItemType-method) to `/api/admin/timeTrackingSettings/workItemTypes?fields=id,name` and find the ID of the target work item type. |
+}

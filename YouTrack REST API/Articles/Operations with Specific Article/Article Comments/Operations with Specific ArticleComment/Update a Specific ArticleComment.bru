@@ -1,0 +1,34 @@
+meta {
+  name: Update a Specific ArticleComment
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/articles/:id/comments/:articleCommentId?fields=id,author(id,name),text,created,visibility(permittedGroups(id,name),permittedUsers(id,name))
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,author(id,name),text,created,visibility(permittedGroups(id,name),permittedUsers(id,name))
+}
+
+params:path {
+  id: {{articleID}}
+  articleCommentId: {{articleCommentID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "text": "Okay, I will do it, @john.smith. By the way, I am updating this comment using REST API."
+  }
+}
+
+settings {
+  encodeUrl: true
+}

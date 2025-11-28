@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of Tagged Issues
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/tags/:id/issues?fields=id,idReadable,summary
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,idReadable,summary
+}
+
+params:path {
+  id: {{tagID}}
+}
+
+settings {
+  encodeUrl: true
+}

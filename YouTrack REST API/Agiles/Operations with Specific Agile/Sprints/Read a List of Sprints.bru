@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of Sprints
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/agiles/:id/sprints?fields=id,name,isDefault,issues(idReadable),goal,start,finish,unresolvedIssuesCount,archived
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,isDefault,issues(idReadable),goal,start,finish,unresolvedIssuesCount,archived
+}
+
+params:path {
+  id: {{agileBoardID}}
+}
+
+settings {
+  encodeUrl: true
+}

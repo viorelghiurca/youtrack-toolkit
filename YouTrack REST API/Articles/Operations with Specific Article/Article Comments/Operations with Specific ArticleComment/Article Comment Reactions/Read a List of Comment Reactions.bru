@@ -1,0 +1,24 @@
+meta {
+  name: Read a List of Comment Reactions
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/articles/:articleId/comments/:commentId/reactions?fields=id,author(login),reaction
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,author(login),reaction
+}
+
+params:path {
+  articleId: {{articleID}}
+  commentId: {{articleCommentID}}
+}
+
+settings {
+  encodeUrl: true
+}

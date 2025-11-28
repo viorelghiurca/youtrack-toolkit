@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific SavedQuery
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/savedQueries/:id?fields=id,name,query,owner(login,name),visibleFor(name,id),issues(id,idReadable,summary)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,query,owner(login,name),visibleFor(name,id),issues(id,idReadable,summary)
+}
+
+params:path {
+  id: {{savedQueryID}}
+}
+
+settings {
+  encodeUrl: true
+}

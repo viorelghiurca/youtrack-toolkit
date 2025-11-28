@@ -1,0 +1,19 @@
+meta {
+  name: Read the License
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/globalSettings/license?fields=username,license,error
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: username,license,error
+}
+
+settings {
+  encodeUrl: true
+}

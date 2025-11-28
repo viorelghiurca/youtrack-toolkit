@@ -1,0 +1,31 @@
+meta {
+  name: Add a New IssueAttachment
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/issues/:id/attachments?fields=id,name,author(id,name),created,updated,size,mimeType,extension,charset,metaData,url
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,author(id,name),created,updated,size,mimeType,extension,charset,metaData,url
+}
+
+params:path {
+  id: {{issue}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {}
+}
+
+settings {
+  encodeUrl: true
+}

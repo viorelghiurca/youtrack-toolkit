@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific BuildBundle
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/build/:id?fields=name,id,values(name,id,description,ordinal,hasRunningJob,assembleDate),isUpdateable
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,values(name,id,description,ordinal,hasRunningJob,assembleDate),isUpdateable
+}
+
+params:path {
+  id: {{buildBundleID}}
+}
+
+settings {
+  encodeUrl: true
+}

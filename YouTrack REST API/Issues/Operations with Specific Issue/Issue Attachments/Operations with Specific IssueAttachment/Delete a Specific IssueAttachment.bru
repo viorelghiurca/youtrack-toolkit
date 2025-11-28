@@ -1,0 +1,20 @@
+meta {
+  name: Delete a Specific IssueAttachment
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/issues/:id/attachments/:issueAttachmentId
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: {{issue}}
+  issueAttachmentId: {{issueAttachmentID}}
+}
+
+settings {
+  encodeUrl: true
+}

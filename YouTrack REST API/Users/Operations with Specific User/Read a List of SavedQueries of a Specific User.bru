@@ -1,0 +1,23 @@
+meta {
+  name: Read a List of SavedQueries of a Specific User
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/users/:id/savedQueries?fields=query,id,name,visibleFor(id,name),isUpdateable,owner(id,name)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: query,id,name,visibleFor(id,name),isUpdateable,owner(id,name)
+}
+
+params:path {
+  id: {{userID}}
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,35 @@
+meta {
+  name: Update a Specific GeneralUserProfile
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/users/:id/profiles/general?fields=id,timezone(id,presentation,offset)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,timezone(id,presentation,offset)
+}
+
+params:path {
+  id: {{userID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "timezone": {
+      "id": "Europe/Berlin"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,33 @@
+meta {
+  name: Add a New EnumBundleElement
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/enum/:id/values?fields=id,name
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name
+}
+
+params:path {
+  id: {{enumBundleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "User Story"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

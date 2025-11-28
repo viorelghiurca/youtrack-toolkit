@@ -1,0 +1,51 @@
+meta {
+  name: Update a Specific Issue
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/issues/:id?fields=id,summary,customFields(id,name,value(avatarUrl,buildLink,color(id),fullName,id,isResolved,localizedName,login,minutes,name,presentation,text))
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,summary,customFields(id,name,value(avatarUrl,buildLink,color(id),fullName,id,isResolved,localizedName,login,minutes,name,presentation,text))
+}
+
+params:path {
+  id: {{issue}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "summary": "New summary",
+    "customFields": [
+      {
+        "value": {
+          "name": "Major"
+        },
+        "name": "Priority",
+        "id": "{{issueCustomFieldID}}",
+        "$type": "SingleEnumIssueCustomField"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Update single issue.
+  
+  Put the ID of the issue into the `sampleIssue` variable or replace the variable with the issue ID in the URL.
+  
+  [https://www.jetbrains.com/help/youtrack/devportal/operations-api-issues.html#update-Issue-method](https://www.jetbrains.com/help/youtrack/devportal/operations-api-issues.html#update-Issue-method)
+}

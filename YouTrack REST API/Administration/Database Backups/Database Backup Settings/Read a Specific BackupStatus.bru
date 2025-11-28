@@ -1,0 +1,19 @@
+meta {
+  name: Read a Specific BackupStatus
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/admin/databaseBackup/settings/backupStatus?fields=backupCancelled,backupError(date,errorMessage),backupInProgress,stopBackup
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: backupCancelled,backupError(date,errorMessage),backupInProgress,stopBackup
+}
+
+settings {
+  encodeUrl: true
+}

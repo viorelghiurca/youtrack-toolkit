@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific TimeTrackingUserProfile
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/users/:id/profiles/timetracking?fields=periodFormat(id)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: periodFormat(id)
+}
+
+params:path {
+  id: {{userID}}
+}
+
+settings {
+  encodeUrl: true
+}

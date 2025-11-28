@@ -1,0 +1,42 @@
+meta {
+  name: Update a Specific VersionBundle
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/version/:id?fields=id,name,fieldType(presentation,id),values(id,name,$type)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,fieldType(presentation,id),values(id,name,$type)
+}
+
+params:path {
+  id: {{versionBundleID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "values": [
+      {
+        "name": "2019.1.5",
+        "$type": "VersionBundleElement"
+      },
+      {
+        "name": "2019.1.6",
+        "$type": "VersionBundleElement"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

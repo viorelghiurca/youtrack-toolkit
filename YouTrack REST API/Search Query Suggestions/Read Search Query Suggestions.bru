@@ -1,0 +1,29 @@
+meta {
+  name: Read Search Query Suggestions
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/search/assist?fields=caret,query,suggestions(caret,completionEnd,completionStart,description,group,matchingEnd,matchingStart,option)
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: caret,query,suggestions(caret,completionEnd,completionStart,description,group,matchingEnd,matchingStart,option)
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "query": "tag: "
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,46 @@
+meta {
+  name: Add a New EnumBundle
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/admin/customFieldSettings/bundles/enum?fields=name,id,values(name,id,description,ordinal),isUpdateable
+  body: json
+  auth: inherit
+}
+
+params:query {
+  fields: name,id,values(name,id,description,ordinal),isUpdateable
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "name": "Series",
+      "values": [
+          {
+              "name": "Doctor Who: Classic"
+          },
+          {
+              "name": "Doctor Who"
+          },
+          {
+              "name": "Stranger Things"
+          },
+          {
+              "name": "Legion"
+          },
+          {
+              "name": "Good Omens"
+          }
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

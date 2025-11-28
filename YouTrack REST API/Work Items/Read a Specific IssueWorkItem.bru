@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific IssueWorkItem
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/workItems/:id?fields=created,duration(presentation,minutes),author(name),creator(name),date,id
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: created,duration(presentation,minutes),author(name),creator(name),date,id
+}
+
+params:path {
+  id: {{workItemID}}
+}
+
+settings {
+  encodeUrl: true
+}

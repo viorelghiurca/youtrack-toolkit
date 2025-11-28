@@ -1,0 +1,19 @@
+meta {
+  name: Read a List of UserGroups
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/groups?fields=id,name,usersCount,teamForProject(name,shortName)
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,name,usersCount,teamForProject(name,shortName)
+}
+
+settings {
+  encodeUrl: true
+}

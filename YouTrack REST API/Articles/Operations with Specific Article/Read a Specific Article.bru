@@ -1,0 +1,23 @@
+meta {
+  name: Read a Specific Article
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/articles/:id?fields=hasStar,content,created,updated,id,idReadable,reporter(name),summary,project(shortName),content
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: hasStar,content,created,updated,id,idReadable,reporter(name),summary,project(shortName),content
+}
+
+params:path {
+  id: {{articleID}}
+}
+
+settings {
+  encodeUrl: true
+}

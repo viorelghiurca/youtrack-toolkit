@@ -1,0 +1,19 @@
+meta {
+  name: Read the List of Custom Field Types
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/admin/customFieldSettings/types?fields=id,presentation,isMultiValue,valueType
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: id,presentation,isMultiValue,valueType
+}
+
+settings {
+  encodeUrl: true
+}

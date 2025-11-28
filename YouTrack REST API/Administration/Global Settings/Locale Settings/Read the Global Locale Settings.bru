@@ -1,0 +1,19 @@
+meta {
+  name: Read the Global Locale Settings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/globalSettings/localeSettings?fields=locale(name,community,locale,language),isRTL
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: locale(name,community,locale,language),isRTL
+}
+
+settings {
+  encodeUrl: true
+}
