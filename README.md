@@ -20,7 +20,7 @@
   <img src="https://img.shields.io/badge/PowerShell-5391FE?style=flat-square&logo=powershell&logoColor=white" alt="PowerShell"/>
   <img src="https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white" alt="Bash"/>
   <img src="https://img.shields.io/badge/Bruno-F5A623?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyeiIvPjwvc3ZnPg==&logoColor=white" alt="Bruno"/>
-  <img src="https://img.shields.io/github/license/yourusername/youtrack-api-toolkit?style=flat-square" alt="License"/>
+  <img src="https://img.shields.io/github/license/viorelghiurca/youtrack-toolkit?style=flat-square" alt="License"/>
 </p>
 
 ---
@@ -131,7 +131,7 @@ pie showData
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/youtrack-api-toolkit.git
+git clone https://github.com/viorelghiurca/youtrack-toolkit.git
 cd youtrack-api-toolkit
 ```
 
@@ -493,6 +493,6 @@ If you find this project helpful, consider giving it a ⭐ on GitHub!
 ---
 
 <p align="center">
-  <sub>Made with ☕ and 💻 by <a href="https://github.com/yourusername">Viorel Ghiurca</a></sub>
+  <sub>Made with ☕ and 💻 by <a href="https://github.com/viorelghiurca">Viorel Ghiurca</a></sub>
 </p>
 
